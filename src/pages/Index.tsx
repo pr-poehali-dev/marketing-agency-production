@@ -553,6 +553,230 @@ function Advantages() {
   );
 }
 
+// ─── Video Interviews ────────────────────────────────────────────────────────
+const videos = [
+  {
+    url: "https://vkvideo.ru/video-102569128_456239198?t=5s",
+    embed: "https://vkvideo.ru/video_ext.php?oid=-102569128&id=456239198&hash=&hd=2",
+    company: "Клиент о результатах",
+    desc: "Как выстроили поток заявок для производственной компании",
+  },
+  {
+    url: "https://vkvideo.ru/video-102569128_456239251?t=0s",
+    embed: "https://vkvideo.ru/video_ext.php?oid=-102569128&id=456239251&hash=&hd=2",
+    company: "Отзыв клиента",
+    desc: "Результаты сотрудничества с Tolka Digital",
+  },
+  {
+    url: "https://vkvideo.ru/video-102569128_456239192?t=1s",
+    embed: "https://vkvideo.ru/video_ext.php?oid=-102569128&id=456239192&hash=&hd=2",
+    company: "Интервью с клиентом",
+    desc: "Опыт работы с агентством и достигнутые результаты",
+  },
+  {
+    url: "https://vkvideo.ru/video-102569128_456239250?list=ln-bqKYzRGzsLDKZNnFtR&t=1s",
+    embed: "https://vkvideo.ru/video_ext.php?oid=-102569128&id=456239250&hash=&hd=2",
+    company: "История успеха",
+    desc: "Как маркетинг изменил бизнес производственной компании",
+  },
+];
+
+function VideoReviews() {
+  const [active, setActive] = useState(0);
+
+  return (
+    <section className="py-24 bg-white" id="video-reviews">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="h-px w-8 bg-[#bda8ff]" />
+          <span className="text-[#bda8ff] text-xs font-mono uppercase tracking-[0.25em] font-semibold">Видео-интервью</span>
+        </div>
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
+          <h2 className="text-4xl md:text-5xl text-[#2d2d2d] font-bold leading-tight">
+            Клиенты рассказывают<br />о результатах
+          </h2>
+          <p className="text-[#595959] text-base max-w-xs mt-4 md:mt-0 leading-relaxed">
+            Реальные владельцы производственных компаний — о сотрудничестве с Tolka Digital
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-3 gap-6">
+          {/* Main video player */}
+          <div className="lg:col-span-2">
+            <div className="aspect-video rounded-2xl overflow-hidden bg-[#f9f7ff] border border-[#bda8ff]/15">
+              <iframe
+                src={videos[active].embed}
+                className="w-full h-full"
+                allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
+                frameBorder="0"
+                allowFullScreen
+              />
+            </div>
+            <div className="mt-4">
+              <div className="font-semibold text-[#2d2d2d]">{videos[active].company}</div>
+              <div className="text-sm text-[#595959] mt-1">{videos[active].desc}</div>
+            </div>
+          </div>
+
+          {/* Playlist */}
+          <div className="flex flex-col gap-3">
+            {videos.map((v, i) => (
+              <button
+                key={i}
+                onClick={() => setActive(i)}
+                className={`flex items-center gap-4 p-4 rounded-xl border text-left transition-all duration-200 ${
+                  active === i
+                    ? "border-[#bda8ff] bg-[#f9f7ff] shadow-md shadow-[#bda8ff]/10"
+                    : "border-[#bda8ff]/15 bg-white hover:border-[#bda8ff]/40"
+                }`}
+              >
+                <div className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 ${
+                  active === i ? "bg-[#bda8ff]" : "bg-[#bda8ff]/10"
+                }`}>
+                  <Icon name="Play" size={16} className={active === i ? "text-white" : "text-[#bda8ff]"} />
+                </div>
+                <div className="min-w-0">
+                  <div className={`text-sm font-semibold truncate ${active === i ? "text-[#2d2d2d]" : "text-[#595959]"}`}>
+                    {v.company}
+                  </div>
+                  <div className="text-xs text-[#595959]/60 mt-0.5 leading-snug line-clamp-2">{v.desc}</div>
+                </div>
+              </button>
+            ))}
+            <a
+              href="https://vkvideo.ru/@tolkadigital"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 border-2 border-[#bda8ff] text-[#bda8ff] font-semibold py-3 rounded-xl hover:bg-[#bda8ff]/8 transition-all duration-200 text-sm mt-1"
+            >
+              Все видео
+              <Icon name="ExternalLink" size={14} />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── Text Reviews ────────────────────────────────────────────────────────────
+const textReviews = [
+  {
+    company: "ZetaPrint",
+    logo: "🖨️",
+    author: "Руководитель ZetaPrint",
+    role: "Генеральный директор",
+    text: "С Tolka Digital сотрудничаем уже несколько лет. За это время выручка онлайн-направления выросла с нуля до 20,9 млн рублей в месяц. Команда глубоко погружается в задачу, предлагает нестандартные решения и всегда держит нас в курсе результатов. Стоимость заявки снизилась в 2,7 раза — с 4 000 до 1 470 рублей. Рекомендуем как надёжного партнёра для бизнеса, который хочет реального роста.",
+    results: ["Выручка: 0 → 20,9 млн ₽/мес", "Лид: 4 000 → 1 470 ₽"],
+    stars: 5,
+  },
+  {
+    company: "Завод РТИ «Борекс»",
+    logo: "⚙️",
+    author: "Коммерческий директор РТИ «Борекс»",
+    role: "Коммерческий директор",
+    text: "Обратились к Tolka Digital с задачей увеличить поток лидов в производственной нише. Результат превзошёл ожидания: количество заявок выросло в 3 раза, при этом стоимость привлечения каждого лида снизилась вдвое. Особенно ценим то, что команда разбирается в специфике производственного B2B — не нужно объяснять базовые вещи. Работаем в удовольствие, цифры говорят сами за себя.",
+    results: ["Лидов: ×3", "Стоимость лида: ÷2"],
+    stars: 5,
+  },
+];
+
+function TextReviews() {
+  return (
+    <section className="py-24 bg-[#f9f7ff]" id="reviews">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="h-px w-8 bg-[#bda8ff]" />
+          <span className="text-[#bda8ff] text-xs font-mono uppercase tracking-[0.25em] font-semibold">Отзывы клиентов</span>
+        </div>
+        <h2 className="text-4xl md:text-5xl text-[#2d2d2d] font-bold leading-tight mb-12">
+          Что говорят<br />наши клиенты
+        </h2>
+
+        <div className="grid md:grid-cols-2 gap-6">
+          {textReviews.map((r, i) => (
+            <div key={i} className="bg-white border border-[#bda8ff]/15 rounded-2xl p-8 hover:shadow-lg hover:shadow-[#bda8ff]/8 transition-all duration-300">
+              {/* Stars */}
+              <div className="flex gap-1 mb-5">
+                {Array.from({ length: r.stars }).map((_, si) => (
+                  <svg key={si} className="w-4 h-4 text-[#e98c6c]" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </div>
+
+              {/* Text */}
+              <p className="text-[#595959] text-sm leading-relaxed mb-6 italic">«{r.text}»</p>
+
+              {/* Results */}
+              <div className="flex gap-3 mb-6 flex-wrap">
+                {r.results.map((res) => (
+                  <span key={res} className="text-xs font-semibold text-[#bda8ff] bg-[#bda8ff]/10 px-3 py-1 rounded-full">
+                    {res}
+                  </span>
+                ))}
+              </div>
+
+              {/* Author */}
+              <div className="flex items-center gap-3 pt-5 border-t border-[#bda8ff]/10">
+                <div className="w-10 h-10 rounded-full bg-[#bda8ff]/10 flex items-center justify-center text-lg flex-shrink-0">
+                  {r.logo}
+                </div>
+                <div>
+                  <div className="text-sm font-semibold text-[#2d2d2d]">{r.author}</div>
+                  <div className="text-xs text-[#595959]/60">{r.company} · {r.role}</div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── Telegram CTA ────────────────────────────────────────────────────────────
+function TelegramCTA() {
+  return (
+    <section className="py-20 bg-[#2d2d2d]">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-10">
+          <div className="max-w-xl">
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-10 h-10 bg-[#bda8ff]/20 rounded-xl flex items-center justify-center">
+                <Icon name="Send" size={20} className="text-[#bda8ff]" />
+              </div>
+              <span className="text-[#bda8ff] text-xs font-mono uppercase tracking-[0.25em] font-semibold">Telegram-канал</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl text-white font-bold leading-tight mb-4">
+              Подпишитесь на наш канал<br />о промышленном маркетинге
+            </h2>
+            <p className="text-white/60 text-base leading-relaxed">
+              Кейсы, разборы, лайфхаки и инсайты из реальной практики с производственными компаниями. Без воды — только то, что работает.
+            </p>
+          </div>
+
+          <div className="flex flex-col items-center gap-5 flex-shrink-0">
+            <div className="bg-white/5 border border-white/10 rounded-2xl px-8 py-6 text-center">
+              <div className="text-4xl font-bold text-white mb-1">1 200+</div>
+              <div className="text-white/50 text-sm">подписчиков</div>
+            </div>
+            <a
+              href="https://t.me/tolkadigital"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 bg-[#bda8ff] text-[#2d2d2d] font-bold px-8 py-4 rounded-full hover:bg-[#a68fed] transition-all duration-200 text-base shadow-lg shadow-[#bda8ff]/25"
+            >
+              <Icon name="Send" size={18} />
+              Подписаться в Telegram
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // ─── Contacts ────────────────────────────────────────────────────────────────
 function Contacts() {
   const [form, setForm] = useState({ name: "", company: "", phone: "", message: "" });
@@ -669,52 +893,103 @@ function Contacts() {
 // ─── Footer ──────────────────────────────────────────────────────────────────
 function Footer() {
   return (
-    <footer className="bg-[#f9f7ff] border-t border-[#bda8ff]/20 py-12">
+    <footer className="bg-[#1e1e1e] pt-14 pb-8">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid md:grid-cols-3 gap-8 mb-10">
-          <div>
-            <img src={LOGO_URL} alt="Tolka Digital" className="h-7 w-auto mb-4" />
-            <p className="text-sm text-[#595959]/70 leading-relaxed max-w-xs">
-              Маркетинговое агентство. Специализация — производственные компании и заводы.
+        <div className="grid md:grid-cols-4 gap-10 mb-12">
+          {/* Brand */}
+          <div className="md:col-span-1">
+            <img src={LOGO_URL} alt="Tolka Digital" className="h-8 w-auto mb-4 brightness-0 invert" />
+            <p className="text-sm text-white/50 leading-relaxed">
+              Маркетинговое агентство.<br />Специализация — производственные компании и заводы.
             </p>
+            <div className="flex items-center gap-3 mt-5">
+              <a
+                href="https://vk.com/tolka_digitalmarketing"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center hover:bg-[#bda8ff]/30 transition-colors"
+              >
+                <span className="text-white text-xs font-bold">VK</span>
+              </a>
+              <a
+                href="https://t.me/tolkadigital"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center hover:bg-[#bda8ff]/30 transition-colors"
+              >
+                <Icon name="Send" size={14} className="text-white" />
+              </a>
+            </div>
           </div>
+
+          {/* Nav */}
           <div>
-            <div className="text-xs font-mono text-[#bda8ff] uppercase tracking-wider font-semibold mb-4">Навигация</div>
-            <div className="flex flex-col gap-2">
+            <div className="text-xs text-white/30 uppercase tracking-wider font-semibold mb-4">Разделы</div>
+            <div className="flex flex-col gap-2.5">
               {[
                 { label: "Кейсы", href: "#cases" },
                 { label: "Услуги", href: "#services" },
                 { label: "Подход", href: "#approach" },
                 { label: "Преимущества", href: "#advantages" },
+                { label: "Отзывы", href: "#reviews" },
                 { label: "Бесплатный аудит", href: "#contacts" },
               ].map((l) => (
-                <a key={l.label} href={l.href} className="text-sm text-[#595959]/70 hover:text-[#bda8ff] transition-colors font-medium w-fit">
+                <a key={l.label} href={l.href} className="text-sm text-white/50 hover:text-white transition-colors w-fit">
                   {l.label}
                 </a>
               ))}
             </div>
           </div>
+
+          {/* Services */}
           <div>
-            <div className="text-xs font-mono text-[#bda8ff] uppercase tracking-wider font-semibold mb-4">Контакты</div>
+            <div className="text-xs text-white/30 uppercase tracking-wider font-semibold mb-4">Услуги</div>
+            <div className="flex flex-col gap-2.5">
+              {[
+                "Стратегия и позиционирование",
+                "Digital-маркетинг",
+                "Контент-маркетинг",
+                "Продающий сайт",
+                "Сквозная аналитика",
+                "Лидогенерация",
+              ].map((s) => (
+                <span key={s} className="text-sm text-white/50">{s}</span>
+              ))}
+            </div>
+          </div>
+
+          {/* Contacts */}
+          <div>
+            <div className="text-xs text-white/30 uppercase tracking-wider font-semibold mb-4">Контакты</div>
             <div className="flex flex-col gap-3">
-              <a href="tel:+79809009409" className="flex items-center gap-2 text-sm text-[#595959]/70 hover:text-[#bda8ff] transition-colors font-medium">
+              <a href="tel:+79809009409" className="flex items-center gap-2 text-sm text-white/50 hover:text-white transition-colors">
                 <Icon name="Phone" size={14} className="text-[#bda8ff]" />
                 +7 980 900-94-09
               </a>
-              <a href="https://t.me/tolkadigital" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-[#595959]/70 hover:text-[#bda8ff] transition-colors font-medium">
+              <a href="https://t.me/tolkadigital" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-white/50 hover:text-white transition-colors">
                 <Icon name="Send" size={14} className="text-[#bda8ff]" />
                 @tolkadigital
               </a>
-              <span className="flex items-center gap-2 text-sm text-[#595959]/70">
+              <span className="flex items-center gap-2 text-sm text-white/50">
                 <Icon name="MapPin" size={14} className="text-[#bda8ff]" />
-                Россия, работаем по всей стране
+                Россия, по всей стране
               </span>
             </div>
+            <a
+              href="#contacts"
+              className="mt-6 inline-flex items-center gap-2 bg-[#e98c6c] text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-[#e98c6c]/90 transition-all"
+            >
+              Получить КП
+            </a>
           </div>
         </div>
-        <div className="pt-6 border-t border-[#bda8ff]/15 flex flex-col md:flex-row items-center justify-between gap-3">
-          <div className="text-xs text-[#595959]/40 font-mono">© 2024 Tolka Digital. Все права защищены</div>
-          <a href="#" className="text-xs text-[#595959]/40 hover:text-[#bda8ff] transition-colors">Политика конфиденциальности</a>
+
+        <div className="pt-6 border-t border-white/8 flex flex-col md:flex-row items-center justify-between gap-3">
+          <div className="text-xs text-white/25">© 2024 Tolka Digital. Все права защищены</div>
+          <div className="flex items-center gap-6">
+            <a href="#" className="text-xs text-white/25 hover:text-white/50 transition-colors">Политика конфиденциальности</a>
+            <a href="#" className="text-xs text-white/25 hover:text-white/50 transition-colors">Обработка персональных данных</a>
+          </div>
         </div>
       </div>
     </footer>
@@ -732,6 +1007,9 @@ export default function Index() {
       <Services />
       <Approach />
       <Advantages />
+      <VideoReviews />
+      <TextReviews />
+      <TelegramCTA />
       <Contacts />
       <Footer />
     </div>

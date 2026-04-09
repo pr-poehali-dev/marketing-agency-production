@@ -19,9 +19,10 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				display: ["'Cormorant Garamond'", "Georgia", "serif"],
-				body: ["'Golos Text'", "sans-serif"],
-				mono: ["'JetBrains Mono'", "monospace"],
+				display: ["Arial", "sans-serif"],
+				body: ["Arial", "sans-serif"],
+				mono: ["'Courier New'", "monospace"],
+				sans: ["Arial", "sans-serif"],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
