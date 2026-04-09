@@ -148,6 +148,23 @@ function Hero() {
           </p>
 
           <div
+            className="flex flex-col sm:flex-row gap-3 sm:gap-6 mb-8 animate-fade-in"
+            style={{ animationDelay: "0.25s" }}
+          >
+            {[
+              { icon: "Clock", text: "Клиенты с нами работают годами — максимальный срок 9 лет" },
+              { icon: "Users", text: "Средний срок сотрудничества 4,5 года" },
+            ].map((b, i) => (
+              <div key={i} className="flex items-center gap-2.5">
+                <div className="w-7 h-7 rounded-full bg-[#bda8ff]/15 flex items-center justify-center flex-shrink-0">
+                  <Icon name={b.icon} size={14} className="text-[#bda8ff]" fallback="Circle" />
+                </div>
+                <span className="text-[#595959] text-sm leading-snug">{b.text}</span>
+              </div>
+            ))}
+          </div>
+
+          <div
             className="flex flex-col sm:flex-row gap-4 mb-10 animate-fade-in"
             style={{ animationDelay: "0.3s" }}
           >
@@ -164,24 +181,6 @@ function Hero() {
             >
               Смотреть кейсы
             </a>
-          </div>
-
-          <div
-            className="flex flex-col sm:flex-row gap-3 sm:gap-6 mb-10 animate-fade-in"
-            style={{ animationDelay: "0.35s" }}
-          >
-            {[
-              { icon: "Clock", text: "Клиенты с нами работают годами — максимальный срок 9 лет" },
-              { icon: "Users", text: "Средний срок сотрудничества 4,5 года" },
-              { icon: "TrendingUp", text: "Окупаемость маркетинга до 2128%" },
-            ].map((b, i) => (
-              <div key={i} className="flex items-center gap-2.5">
-                <div className="w-7 h-7 rounded-full bg-[#bda8ff]/15 flex items-center justify-center flex-shrink-0">
-                  <Icon name={b.icon} size={14} className="text-[#bda8ff]" fallback="Circle" />
-                </div>
-                <span className="text-[#595959] text-sm leading-snug">{b.text}</span>
-              </div>
-            ))}
           </div>
 
           {/* Шаблоны */}
@@ -557,14 +556,14 @@ function Approach() {
                 Почему это важно
               </div>
               <h3 className="font-display text-3xl text-white mb-5 leading-tight">
-                Промышленный маркетинг — это отдельная профессия
+                Промышленный маркетинг требует особого подхода и компетенций
               </h3>
               <p className="text-white/60 text-sm leading-relaxed mb-6">
-                Универсальное агентство не знает, что такое ГОСТы, тендеры и решения через технический совет. Мы работаем только с производством — и это даёт конкретный результат.
+                Универсальное агентство не знает, что такое ГОСТы, тендеры и решения через технический совет.
               </p>
               <div className="space-y-3">
                 {[
-                  "Знаем, как убеждать технических ЛПР и закупщиков",
+                  "Знаем как продавать вашей аудитории",
                   "Умеем продвигать сложные продукты через экспертный контент",
                   "Выстраиваем воронки под длинные циклы сделок 6–18 месяцев",
                   "Не тратим бюджет на «широкий охват» — бьём точно в целевую аудиторию",
@@ -661,14 +660,14 @@ const videos = [
   },
   {
     embed: "https://vkvideo.ru/video_ext.php?oid=-102569128&id=456239187&hash=&hd=2",
-    company: "ЛандшафтАграр",
-    tag: "Агробизнес",
-    story: "ЛандшафтАграр — поставщик агрономических решений для крупных хозяйств. TolkaDigital выстроил систему привлечения B2B-клиентов с нуля: сайт, контент и рекламные кампании. Результат — стабильный поток целевых заявок в сложной нише.",
+    company: "СтройСад",
+    tag: "B2B производство",
+    story: "СтройСад — компания с B2B-направлением в производственной нише. TolkaDigital выстроил систему привлечения корпоративных клиентов: сайт, контент и рекламные кампании. Результат — стабильный поток целевых заявок.",
     metrics: ["Системный B2B-маркетинг", "Стабильный поток заявок"],
     projectUrl: "https://tolkadigital.ru/projects/landshaftagrar",
   },
   {
-    embed: "https://vkvideo.ru/video_ext.php?oid=-102569128&id=456239250&hash=&hd=2",
+    embed: "https://vkvideo.ru/video_ext.php?oid=-102569128&id=456239250&list=ln-bqKYzRGzsLDKZNnFtR&hash=&hd=2",
     company: "Динамика",
     tag: "Протезирование",
     story: "Медицинский центр протезирования конечностей получил новый сайт и рекламные кампании. TolkaDigital точно проработал целевую аудиторию в узкой нише. ROMI достиг 2128%, доля рекламных расходов составила всего 4,49%.",
@@ -790,12 +789,12 @@ const textReviews = [
     projectUrl: null,
   },
   {
-    company: "Поставщик кислот и щелочей",
+    company: "ХимСервис",
     photo: null,
-    author: "Руководитель компании",
-    role: "Химическая отрасль",
-    text: "Обратились с задачей «упаковать» бизнес и выстроить поток клиентов в нише поставок кислот и щелочей для промышленности. TolkaDigital разработал позиционирование, создал сайт и запустил рекламу. Получили стабильный поток квалифицированных заявок от профильных предприятий.",
-    results: ["Системный маркетинг в химической нише", "Стабильный B2B-поток"],
+    author: "Усман",
+    role: "Владелец компании ХимСервис",
+    text: "Обратились с задачей выстроить поток клиентов в нише поставок кислот и щелочей для промышленности. TolkaDigital разработал позиционирование, создал сайт и запустил рекламу. Стоимость заявки снизилась в 4,4 раза. Получили стабильный поток квалифицированных заявок от профильных предприятий.",
+    results: ["×3 лидов", "Заявка была: 7 895 ₽", "Стала: 1 778 ₽"],
     stars: 5,
     projectUrl: "https://vk.com/@tolka_digitalmarketing-himiya-biznesa-kak-my-upakovali-postavschika-kislot-i-schelo",
     tgUrl: "https://t.me/tolkadigital/132",
@@ -908,7 +907,6 @@ function TelegramCTA() {
               <div>
                 <div className="text-3xl font-bold text-white">10+</div>
                 <div className="text-white/40 text-sm mt-0.5">постов в месяц</div>
-                <div className="text-white/30 text-xs mt-1 max-w-[180px] leading-snug">Каждую неделю — полезные материалы для руководителей и владельцев бизнеса, бесплатные шаблоны</div>
               </div>
             </div>
             <a
