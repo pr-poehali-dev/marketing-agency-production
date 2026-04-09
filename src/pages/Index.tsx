@@ -271,27 +271,51 @@ function ROICalculator() {
 const cases = [
   {
     img: CASE_IMG_1,
-    tag: "Металлообработка",
-    company: "Завод металлоконструкций",
-    title: "Выстроили стабильный поток B2B-заявок для производителя металлоконструкций",
-    results: ["Заявок в месяц: 0 → 34", "Стоимость лида: 1 840 ₽", "Окупаемость: 1 200%"],
-    year: "2024",
+    tag: "Чистые помещения",
+    company: "GML-Panel",
+    title: "Рост заявок в 7 раз при снижении стоимости лида в 8,3 раза для производителя cleanroom-панелей",
+    results: ["Заявок: ×7", "Стоимость лида: −8,3×", "Стабильный B2B-поток"],
+    url: "https://tolkadigital.ru/gml-panel",
   },
   {
     img: CASE_IMG_2,
-    tag: "Промышленное оборудование",
-    company: "Завод спецтехники",
-    title: "SEO и контекст для производителя промышленного оборудования — рост трафика в 4 раза",
-    results: ["Трафик: ×4 за 8 месяцев", "Конверсия сайта: 4,7%", "Выручка: +31% за год"],
-    year: "2023",
+    tag: "Полиграфия",
+    company: "ZetaPrint",
+    title: "Запуск онлайн-продаж с нуля: от пустого сайта до 20,9 млн ₽ выручки в месяц",
+    results: ["Выручка онлайн: 0 → 20,9 млн ₽/мес", "Стоимость заявки: −63%", "Лид: 4 000 ₽ → 1 470 ₽"],
+    url: "https://tolkadigital.ru/projects/zetaprint",
   },
   {
     img: CASE_IMG_3,
-    tag: "Химическая промышленность",
-    company: "Химическое производство",
-    title: "Комплексное продвижение химического завода: от нуля до 50+ заявок ежемесячно",
-    results: ["50+ заявок / месяц", "Средний чек: ×2", "ROI: 800%"],
-    year: "2024",
+    tag: "Медтехника",
+    company: "Динамика",
+    title: "ROMI 2128% для производителя протезов: 89 заявок в месяц при ДРР 4,49%",
+    results: ["ROMI: 2 128%", "ДРР: 4,49%", "89 заявок / месяц"],
+    url: "https://tolkadigital.ru/dynamics",
+  },
+  {
+    img: CASE_IMG_1,
+    tag: "Резинотехника",
+    company: "РТИ «Борекс»",
+    title: "Лидов в 3 раза больше при вдвое меньшей стоимости для производителя резинотехнических изделий",
+    results: ["Лидов: ×3", "Стоимость лида: ×2 дешевле", "B2B-ниша производства"],
+    url: "https://tolkadigital.ru/borex",
+  },
+  {
+    img: CASE_IMG_2,
+    tag: "Полиграфия",
+    company: "ZetaPrint — новый продукт",
+    title: "Запуск нового продукта с нуля: 150 заявок в месяц по 1 200 ₽",
+    results: ["150 заявок / месяц", "Стоимость лида: 1 200 ₽", "ROI: 456%"],
+    url: "https://tolkadigital.ru/productzetaprint",
+  },
+  {
+    img: CASE_IMG_3,
+    tag: "Спецтехника",
+    company: "Тайфун",
+    title: "4-й год работы: снизили стоимость заявки с 14 181 ₽ до 4 054 ₽ для производителя вездеходов",
+    results: ["Заявок в 2024: 105", "Лид: 14 181 ₽ → 4 054 ₽", "Сотрудничество 4 года"],
+    url: "https://tolkadigital.ru/taifun",
   },
 ];
 
@@ -318,7 +342,7 @@ function Cases() {
           {cases.map((c, i) => (
             <article
               key={i}
-              className="group bg-white border border-[#bda8ff]/15 rounded-2xl overflow-hidden hover:border-[#bda8ff]/50 hover:shadow-xl hover:shadow-[#bda8ff]/10 transition-all duration-300"
+              className="group bg-white border border-[#bda8ff]/15 rounded-2xl overflow-hidden hover:border-[#bda8ff]/50 hover:shadow-xl hover:shadow-[#bda8ff]/10 transition-all duration-300 flex flex-col"
             >
               <div className="aspect-[16/9] overflow-hidden">
                 <img
@@ -327,18 +351,17 @@ function Cases() {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
               </div>
-              <div className="p-6">
-                <div className="flex items-center justify-between mb-4">
+              <div className="p-6 flex flex-col flex-1">
+                <div className="mb-4">
                   <span className="text-xs font-mono text-[#bda8ff] font-semibold uppercase tracking-wider bg-[#bda8ff]/10 px-2.5 py-1 rounded-full">
                     {c.tag}
                   </span>
-                  <span className="text-xs font-mono text-[#595959]/50">{c.year}</span>
                 </div>
                 <div className="text-xs text-[#595959]/60 font-medium mb-2">{c.company}</div>
-                <h3 className="text-[#2d2d2d] font-medium leading-snug mb-5 text-sm">
+                <h3 className="text-[#2d2d2d] font-medium leading-snug mb-5 text-sm flex-1">
                   {c.title}
                 </h3>
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-2 mb-5">
                   {c.results.map((r) => (
                     <div key={r} className="flex items-center gap-2">
                       <div className="w-1.5 h-1.5 rounded-full bg-[#e98c6c] flex-shrink-0" />
@@ -346,6 +369,15 @@ function Cases() {
                     </div>
                   ))}
                 </div>
+                <a
+                  href={c.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#bda8ff] hover:text-[#a68fed] transition-colors duration-200 mt-auto"
+                >
+                  Читать кейс
+                  <Icon name="ExternalLink" size={12} />
+                </a>
               </div>
             </article>
           ))}
