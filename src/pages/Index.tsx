@@ -54,12 +54,18 @@ function Nav() {
           ))}
         </nav>
 
-        <a
-          href="#contacts"
-          className="hidden md:inline-flex items-center gap-2 bg-[#e98c6c] text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-[#e98c6c]/90 transition-all duration-200 shadow-sm"
-        >
-          Получить КП
-        </a>
+        <div className="hidden md:flex items-center gap-4">
+          <a href="tel:+79809009409" className="flex items-center gap-1.5 text-sm text-[#595959] hover:text-[#bda8ff] transition-colors font-medium">
+            <Icon name="Phone" size={14} className="text-[#bda8ff]" />
+            +7 980 900-94-09
+          </a>
+          <a
+            href="#contacts"
+            className="inline-flex items-center gap-2 bg-[#e98c6c] text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-[#e98c6c]/90 transition-all duration-200 shadow-sm"
+          >
+            Получить КП
+          </a>
+        </div>
 
         <button className="md:hidden text-[#2d2d2d]" onClick={() => setMenuOpen(!menuOpen)}>
           <Icon name={menuOpen ? "X" : "Menu"} size={22} />
@@ -123,7 +129,7 @@ function Hero() {
           >
             Строим системы привлечения клиентов для промышленных компаний.
             Окупаемость маркетинга —{" "}
-            <span className="text-[#e98c6c] font-semibold">до 2000%</span>.
+            <span className="text-[#e98c6c] font-semibold">до 2128%</span>.
           </p>
 
           <div
@@ -150,9 +156,9 @@ function Hero() {
             style={{ animationDelay: "0.4s" }}
           >
             {[
-              { value: "87+", label: "Клиентов из производства" },
-              { value: "2000%", label: "Макс. окупаемость" },
-              { value: "6 лет", label: "В промышленном сегменте" },
+              { value: "20+", label: "Клиентов из производства" },
+              { value: "2128%", label: "Максимальная окупаемость" },
+              { value: "10+ лет", label: "В промышленном маркетинге" },
             ].map((s) => (
               <div key={s.label}>
                 <div className="font-display text-3xl md:text-4xl text-[#2d2d2d] font-bold">{s.value}</div>
@@ -389,12 +395,12 @@ function Cases() {
 
 // ─── Services ────────────────────────────────────────────────────────────────
 const services = [
-  { icon: "Target", title: "Стратегия и позиционирование", desc: "Анализ рынка, конкурентов и аудитории. Уникальное позиционирование для промышленной компании.", tags: ["Анализ рынка", "Аудит", "УТП"] },
-  { icon: "Search", title: "Digital-маркетинг", desc: "SEO, Яндекс.Директ и таргетинг, настроенные под длинный цикл B2B-сделки.", tags: ["SEO", "Директ", "Таргетинг"] },
-  { icon: "FileText", title: "Контент-маркетинг", desc: "Экспертный контент: технические статьи, кейсы, white papers для ЛПР в производстве.", tags: ["Статьи", "Кейсы", "White Paper"] },
-  { icon: "Users", title: "Лидогенерация", desc: "Системы привлечения квалифицированных заявок от промышленных покупателей и интеграция с CRM.", tags: ["Воронка", "CRM", "B2B лиды"] },
-  { icon: "Globe", title: "Промышленный сайт", desc: "Разработка сайтов под задачи производственных компаний. Фокус на конверсию и доверие.", tags: ["UX/UI", "Конверсия", "Каталог"] },
-  { icon: "BarChart2", title: "Аналитика и отчётность", desc: "Прозрачные дашборды. Каждое решение обосновано данными, каждый рубль бюджета под контролем.", tags: ["Дашборды", "Метрики", "ROI"] },
+  { icon: "Target", title: "Стратегия и позиционирование", desc: "Анализ рынка, конкурентов и аудитории. Уникальное позиционирование для промышленной компании.", tags: ["Анализ рынка", "Портрет ЦА", "УТП", "Конкурентный анализ"] },
+  { icon: "Search", title: "Digital-маркетинг", desc: "SEO, Яндекс.Директ и таргетинг, настроенные под длинный цикл B2B-сделки в промышленности.", tags: ["SEO", "Яндекс.Директ", "Таргетинг ВКонтакте", "B2B-реклама"] },
+  { icon: "FileText", title: "Контент-маркетинг", desc: "Экспертный контент для ЛПР: технические статьи, производственные кейсы, видеообзоры продукции и отраслевые обзоры.", tags: ["Технические статьи", "Кейсы клиентов", "Видео о продукте", "Экспертный блог"] },
+  { icon: "Users", title: "Лидогенерация", desc: "Системы привлечения квалифицированных заявок от промышленных покупателей и интеграция с CRM.", tags: ["Квалификация лидов", "Воронка продаж", "CRM-интеграция", "B2B-лиды"] },
+  { icon: "Globe", title: "Продающий сайт", desc: "Разработка сайтов под задачи производственных компаний. Фокус на доверие, конверсию и простоту контакта.", tags: ["Конверсионный дизайн", "Каталог продукции", "Формы захвата", "Мобильная версия"] },
+  { icon: "BarChart2", title: "Аналитика и отчётность", desc: "Прозрачные дашборды. Каждое решение обосновано данными, каждый рубль бюджета под контролем.", tags: ["Сквозная аналитика", "ROI по каналам", "Дашборды", "KPI-отчёты"] },
 ];
 
 function Services() {
@@ -442,10 +448,12 @@ function Services() {
 
 // ─── Approach ────────────────────────────────────────────────────────────────
 const steps = [
-  { num: "01", title: "Аудит и погружение", desc: "2 недели. Изучаем рынок, конкурентов, текущие каналы и точки роста. Результат — детальный маркетинговый аудит." },
-  { num: "02", title: "Стратегия роста", desc: "Формируем приоритеты: какие каналы дадут результат быстрее всего. Фиксируем метрики успеха." },
-  { num: "03", title: "Запуск системы", desc: "Реализуем стратегию итерациями. Первые лиды — в течение 60 дней. Отчётность каждые 2 недели." },
-  { num: "04", title: "Рост и масштаб", desc: "Масштабируем то, что работает. Цель — стабильный управляемый поток клиентов и рост выручки." },
+  { num: "01", title: "Аудит и погружение", desc: "2 недели. Изучаем рынок, конкурентов, текущие каналы и точки роста. Результат — детальный маркетинговый аудит с конкретными рекомендациями." },
+  { num: "02", title: "Стратегия роста", desc: "Формируем приоритеты: какие каналы дадут результат быстрее всего, где точки рычага. Фиксируем метрики успеха и план на 6 месяцев." },
+  { num: "03", title: "Продающий сайт", desc: "Создаём или дорабатываем сайт, который вызывает доверие у промышленных покупателей: технические характеристики, кейсы, логика убеждения ЛПР." },
+  { num: "04", title: "Сквозная аналитика и CRM", desc: "Внедряем сквозную аналитику: отслеживаем лиды, квалифицированные лиды, КП, КЭВы, продажи, выручку и окупаемость. Помогаем настроить CRM." },
+  { num: "05", title: "Настройка и оптимизация рекламы", desc: "Запускаем рекламные каналы, тестируем гипотезы и планомерно снижаем стоимость лида. Первые заявки — в течение 30–60 дней после старта." },
+  { num: "06", title: "Масштабирование результатов", desc: "Масштабируем то, что работает, до нужных вам объёмов. Цель — загрузить отдел продаж и производство стабильным потоком целевых клиентов." },
 ];
 
 function Approach() {
@@ -460,18 +468,13 @@ function Approach() {
           Системный подход,<br />проверенный на практике
         </h2>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12">
           {steps.map((s, i) => (
             <div key={i} className="relative">
-              {i < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-5 left-full w-full h-px bg-gradient-to-r from-[#bda8ff]/40 to-transparent z-0" />
-              )}
-              <div className="relative z-10">
-                <div className="font-display text-5xl text-[#bda8ff]/20 font-bold mb-4">{s.num}</div>
-                <div className="h-px w-8 bg-[#e98c6c] mb-4" />
-                <h3 className="text-[#2d2d2d] font-semibold text-base mb-3">{s.title}</h3>
-                <p className="text-[#595959] text-sm leading-relaxed">{s.desc}</p>
-              </div>
+              <div className="font-display text-5xl text-[#bda8ff]/20 font-bold mb-4">{s.num}</div>
+              <div className="h-px w-8 bg-[#e98c6c] mb-4" />
+              <h3 className="text-[#2d2d2d] font-semibold text-base mb-3">{s.title}</h3>
+              <p className="text-[#595959] text-sm leading-relaxed">{s.desc}</p>
             </div>
           ))}
         </div>
@@ -514,7 +517,7 @@ const advantages = [
   { icon: "Shield", title: "Прозрачные договоры", desc: "Фиксированный ретейнер без скрытых платежей. Права на все материалы передаются вам." },
   { icon: "Zap", title: "Быстрый старт", desc: "Первые результаты через 30–60 дней. Без месяцев «подготовительной работы» без видимого эффекта." },
   { icon: "Users", title: "Выделенная команда", desc: "Персональный менеджер, стратег и аналитик на вашем проекте. Не колл-центр, а партнёрство." },
-  { icon: "Lock", title: "Конкуренты не работают с нами", desc: "На каждом рынке и регионе — один клиент. Конкуренты не получат доступ к нашим наработкам." },
+  { icon: "Lightbulb", title: "Знаем сотни рабочих связок", desc: "За 10+ лет в промышленном маркетинге накопили базу проверенных инструментов. Подбираем связки конкретно под ваш объём, бюджет и отрасль — чтобы дать результат быстро." },
 ];
 
 function Advantages() {
@@ -553,10 +556,12 @@ function Advantages() {
 // ─── Contacts ────────────────────────────────────────────────────────────────
 function Contacts() {
   const [form, setForm] = useState({ name: "", company: "", phone: "", message: "" });
+  const [agreed, setAgreed] = useState(false);
   const [sent, setSent] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!agreed) return;
     setSent(true);
   };
 
@@ -567,26 +572,26 @@ function Contacts() {
           <div>
             <div className="flex items-center gap-3 mb-6">
               <div className="h-px w-8 bg-[#bda8ff]" />
-              <span className="text-[#bda8ff] text-xs font-mono uppercase tracking-[0.25em] font-semibold">Контакты</span>
+              <span className="text-[#bda8ff] text-xs font-mono uppercase tracking-[0.25em] font-semibold">Бесплатный аудит</span>
             </div>
             <h2 className="font-display text-4xl md:text-5xl text-[#2d2d2d] mb-6 leading-tight">
               Начнём с<br />бесплатного аудита
             </h2>
-            <p className="text-[#595959] text-base leading-relaxed mb-10">
+            <p className="text-[#595959] text-base leading-relaxed mb-8">
               Расскажем, где у вашей компании скрыт потенциал роста. Аудит занимает 45 минут и ни к чему не обязывает.
             </p>
-
-            <div className="space-y-5">
+            <div className="space-y-4">
               {[
-                { icon: "Phone", label: "+7 980 900-94-09" },
-                { icon: "Send", label: "@tolkadigital" },
-                { icon: "MapPin", label: "Россия, работаем по всей стране" },
-              ].map((c) => (
-                <div key={c.label} className="flex items-center gap-4">
-                  <div className="w-10 h-10 bg-[#bda8ff]/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Icon name={c.icon} fallback="Circle" size={18} className="text-[#bda8ff]" />
+                "Анализируем текущие каналы и их эффективность",
+                "Находим точки роста и узкие места в воронке",
+                "Показываем, какой результат реально достижим",
+                "Предлагаем конкретный план действий",
+              ].map((item) => (
+                <div key={item} className="flex items-start gap-3">
+                  <div className="w-5 h-5 rounded-full bg-[#bda8ff]/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Icon name="Check" size={12} className="text-[#bda8ff]" />
                   </div>
-                  <span className="text-[#595959] text-sm font-medium">{c.label}</span>
+                  <span className="text-[#595959] text-sm leading-relaxed">{item}</span>
                 </div>
               ))}
             </div>
@@ -632,16 +637,26 @@ function Contacts() {
                     className="w-full bg-white border border-[#bda8ff]/25 text-[#2d2d2d] text-sm px-4 py-3 rounded-xl focus:outline-none focus:border-[#bda8ff] placeholder-[#595959]/30 transition-colors duration-200 resize-none"
                   />
                 </div>
+                <label className="flex items-start gap-3 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={agreed}
+                    onChange={(e) => setAgreed(e.target.checked)}
+                    className="mt-0.5 w-4 h-4 rounded border-[#bda8ff]/40 accent-[#bda8ff] cursor-pointer flex-shrink-0"
+                  />
+                  <span className="text-xs text-[#595959]/60 leading-relaxed">
+                    Я согласен(а) на обработку персональных данных в соответствии с{" "}
+                    <a href="#" className="text-[#bda8ff] hover:underline">политикой конфиденциальности</a>
+                  </span>
+                </label>
                 <button
                   type="submit"
-                  className="w-full bg-[#e98c6c] text-white font-semibold py-4 px-6 rounded-full hover:bg-[#e98c6c]/90 transition-all duration-200 flex items-center justify-center gap-2 shadow-md shadow-[#e98c6c]/20"
+                  disabled={!agreed}
+                  className="w-full bg-[#e98c6c] text-white font-semibold py-4 px-6 rounded-full hover:bg-[#e98c6c]/90 transition-all duration-200 flex items-center justify-center gap-2 shadow-md shadow-[#e98c6c]/20 disabled:opacity-40 disabled:cursor-not-allowed"
                 >
                   Записаться на аудит
                   <Icon name="ArrowRight" size={16} />
                 </button>
-                <p className="text-xs text-[#595959]/40 text-center">
-                  Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
-                </p>
               </form>
             )}
           </div>
@@ -654,25 +669,52 @@ function Contacts() {
 // ─── Footer ──────────────────────────────────────────────────────────────────
 function Footer() {
   return (
-    <footer className="bg-[#f9f7ff] border-t border-[#bda8ff]/20 py-10">
+    <footer className="bg-[#f9f7ff] border-t border-[#bda8ff]/20 py-12">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <img src={LOGO_URL} alt="Tolka Digital" className="h-7 w-auto" />
-          <div className="flex gap-8">
-            {[
-              { label: "Кейсы", href: "#cases" },
-              { label: "Услуги", href: "#services" },
-              { label: "Подход", href: "#approach" },
-              { label: "Контакты", href: "#contacts" },
-            ].map((l) => (
-              <a key={l.label} href={l.href} className="text-sm text-[#595959]/60 hover:text-[#bda8ff] transition-colors font-medium">
-                {l.label}
+        <div className="grid md:grid-cols-3 gap-8 mb-10">
+          <div>
+            <img src={LOGO_URL} alt="Tolka Digital" className="h-7 w-auto mb-4" />
+            <p className="text-sm text-[#595959]/70 leading-relaxed max-w-xs">
+              Маркетинговое агентство. Специализация — производственные компании и заводы.
+            </p>
+          </div>
+          <div>
+            <div className="text-xs font-mono text-[#bda8ff] uppercase tracking-wider font-semibold mb-4">Навигация</div>
+            <div className="flex flex-col gap-2">
+              {[
+                { label: "Кейсы", href: "#cases" },
+                { label: "Услуги", href: "#services" },
+                { label: "Подход", href: "#approach" },
+                { label: "Преимущества", href: "#advantages" },
+                { label: "Бесплатный аудит", href: "#contacts" },
+              ].map((l) => (
+                <a key={l.label} href={l.href} className="text-sm text-[#595959]/70 hover:text-[#bda8ff] transition-colors font-medium w-fit">
+                  {l.label}
+                </a>
+              ))}
+            </div>
+          </div>
+          <div>
+            <div className="text-xs font-mono text-[#bda8ff] uppercase tracking-wider font-semibold mb-4">Контакты</div>
+            <div className="flex flex-col gap-3">
+              <a href="tel:+79809009409" className="flex items-center gap-2 text-sm text-[#595959]/70 hover:text-[#bda8ff] transition-colors font-medium">
+                <Icon name="Phone" size={14} className="text-[#bda8ff]" />
+                +7 980 900-94-09
               </a>
-            ))}
+              <a href="https://t.me/tolkadigital" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-[#595959]/70 hover:text-[#bda8ff] transition-colors font-medium">
+                <Icon name="Send" size={14} className="text-[#bda8ff]" />
+                @tolkadigital
+              </a>
+              <span className="flex items-center gap-2 text-sm text-[#595959]/70">
+                <Icon name="MapPin" size={14} className="text-[#bda8ff]" />
+                Россия, работаем по всей стране
+              </span>
+            </div>
           </div>
-          <div className="text-xs text-[#595959]/40 font-mono">
-            © 2024 Tolka Digital. Все права защищены
-          </div>
+        </div>
+        <div className="pt-6 border-t border-[#bda8ff]/15 flex flex-col md:flex-row items-center justify-between gap-3">
+          <div className="text-xs text-[#595959]/40 font-mono">© 2024 Tolka Digital. Все права защищены</div>
+          <a href="#" className="text-xs text-[#595959]/40 hover:text-[#bda8ff] transition-colors">Политика конфиденциальности</a>
         </div>
       </div>
     </footer>
