@@ -148,7 +148,7 @@ function Hero() {
           </p>
 
           <div
-            className="flex flex-col sm:flex-row gap-4 mb-16 animate-fade-in"
+            className="flex flex-col sm:flex-row gap-4 mb-10 animate-fade-in"
             style={{ animationDelay: "0.3s" }}
           >
             <a
@@ -164,6 +164,56 @@ function Hero() {
             >
               Смотреть кейсы
             </a>
+          </div>
+
+          <div
+            className="flex flex-col sm:flex-row gap-3 sm:gap-6 mb-10 animate-fade-in"
+            style={{ animationDelay: "0.35s" }}
+          >
+            {[
+              { icon: "Clock", text: "Клиенты с нами работают годами — максимальный срок 9 лет" },
+              { icon: "Users", text: "Средний срок сотрудничества 4,5 года" },
+              { icon: "TrendingUp", text: "Окупаемость маркетинга до 2128%" },
+            ].map((b, i) => (
+              <div key={i} className="flex items-center gap-2.5">
+                <div className="w-7 h-7 rounded-full bg-[#bda8ff]/15 flex items-center justify-center flex-shrink-0">
+                  <Icon name={b.icon} size={14} className="text-[#bda8ff]" fallback="Circle" />
+                </div>
+                <span className="text-[#595959] text-sm leading-snug">{b.text}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Шаблоны */}
+          <div
+            className="mb-10 animate-fade-in"
+            style={{ animationDelay: "0.38s" }}
+          >
+            <div className="inline-flex items-center gap-2 bg-[#bda8ff]/8 border border-[#bda8ff]/25 rounded-2xl px-5 py-3.5">
+              <div className="w-8 h-8 bg-[#bda8ff]/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                <Icon name="FileSpreadsheet" size={16} className="text-[#bda8ff]" fallback="File" />
+              </div>
+              <div className="flex-1">
+                <div className="text-xs text-[#595959]/60 font-mono uppercase tracking-wider mb-1">Бесплатные шаблоны</div>
+                <div className="flex flex-col sm:flex-row gap-2">
+                  <a
+                    href="#contacts"
+                    className="inline-flex items-center gap-1.5 text-sm text-[#2d2d2d] font-semibold hover:text-[#bda8ff] transition-colors"
+                  >
+                    <Icon name="Download" size={13} className="text-[#e98c6c]" />
+                    Шаблон расчёта окупаемости маркетинга
+                  </a>
+                  <span className="hidden sm:inline text-[#bda8ff]/40">·</span>
+                  <a
+                    href="#contacts"
+                    className="inline-flex items-center gap-1.5 text-sm text-[#2d2d2d] font-semibold hover:text-[#bda8ff] transition-colors"
+                  >
+                    <Icon name="Download" size={13} className="text-[#e98c6c]" />
+                    Шаблон отчёта по рекламе
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div
@@ -308,7 +358,7 @@ const cases = [
   },
   {
     img: CASE_IMG_3,
-    tag: "Медтехника",
+    tag: "Медицина",
     company: "Динамика",
     title: "ROMI 2128% для производителя протезов: 89 заявок в месяц при ДРР 4,49%",
     results: ["ROMI: 2 128%", "ДРР: 4,49%", "89 заявок / месяц"],
@@ -351,7 +401,7 @@ function Cases() {
               <span className="text-[#bda8ff] text-xs font-mono uppercase tracking-[0.25em] font-semibold">Кейсы</span>
             </div>
             <h2 className="font-display text-4xl md:text-5xl text-[#2d2d2d] leading-tight">
-              Результаты, а<br />не обещания
+              Результаты, а не обещания
             </h2>
           </div>
           <p className="text-[#595959] text-base max-w-xs mt-6 md:mt-0 leading-relaxed">
@@ -483,38 +533,63 @@ function Approach() {
           Системный подход,<br />проверенный на практике
         </h2>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {steps.map((s, i) => (
-            <div key={i} className="relative">
-              <div className="font-display text-5xl text-[#bda8ff]/20 font-bold mb-4">{s.num}</div>
-              <div className="h-px w-8 bg-[#e98c6c] mb-4" />
-              <h3 className="text-[#2d2d2d] font-semibold text-base mb-3">{s.title}</h3>
+            <div key={i} className="relative bg-[#f9f7ff] border border-[#bda8ff]/20 rounded-2xl p-7 hover:border-[#bda8ff]/50 hover:shadow-lg hover:shadow-[#bda8ff]/10 transition-all duration-300 group">
+              <div className="flex items-center justify-between mb-5">
+                <div className="w-10 h-10 rounded-xl bg-[#bda8ff] flex items-center justify-center">
+                  <span className="text-white text-sm font-bold font-mono">{s.num}</span>
+                </div>
+                <div className="h-px flex-1 mx-4 bg-[#e98c6c]/30 group-hover:bg-[#e98c6c]/60 transition-colors" />
+              </div>
+              <h3 className="text-[#2d2d2d] font-bold text-base mb-3">{s.title}</h3>
               <p className="text-[#595959] text-sm leading-relaxed">{s.desc}</p>
             </div>
           ))}
         </div>
 
-        <div className="mt-20 bg-[#f9f7ff] border border-[#bda8ff]/20 rounded-2xl p-8 md:p-12">
-          <div className="grid md:grid-cols-2 gap-10 items-center">
+        <div className="mt-20 bg-gradient-to-br from-[#2d2d2d] to-[#1e1e1e] rounded-2xl p-8 md:p-12 overflow-hidden relative">
+          <div className="absolute top-0 right-0 w-80 h-80 bg-[#bda8ff]/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 left-1/3 w-60 h-60 bg-[#e98c6c]/8 rounded-full blur-3xl pointer-events-none" />
+          <div className="relative grid md:grid-cols-2 gap-10 items-start">
             <div>
-              <h3 className="font-display text-3xl text-[#2d2d2d] mb-4">
-                Почему промышленным компаниям нужен специализированный маркетинг
+              <div className="inline-flex items-center gap-2 bg-[#bda8ff]/20 text-[#bda8ff] text-xs font-mono uppercase tracking-[0.2em] font-semibold px-3 py-1.5 rounded-full mb-6">
+                Почему это важно
+              </div>
+              <h3 className="font-display text-3xl text-white mb-5 leading-tight">
+                Промышленный маркетинг — это отдельная профессия
               </h3>
-              <p className="text-[#595959] text-sm leading-relaxed">
-                Производственный маркетинг отличается от любого другого. Длинные циклы сделок, сложные технические продукты, консервативные ЛПР. Это особенности, которые нужно использовать. Мы знаем, как это делать.
+              <p className="text-white/60 text-sm leading-relaxed mb-6">
+                Универсальное агентство не знает, что такое ГОСТы, тендеры и решения через технический совет. Мы работаем только с производством — и это даёт конкретный результат.
               </p>
+              <div className="space-y-3">
+                {[
+                  "Знаем, как убеждать технических ЛПР и закупщиков",
+                  "Умеем продвигать сложные продукты через экспертный контент",
+                  "Выстраиваем воронки под длинные циклы сделок 6–18 месяцев",
+                  "Не тратим бюджет на «широкий охват» — бьём точно в целевую аудиторию",
+                  "Работаем как внутренний маркетинговый отдел, а не подрядчик",
+                ].map((item, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <div className="w-5 h-5 rounded-full bg-[#e98c6c]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Icon name="Check" size={11} className="text-[#e98c6c]" />
+                    </div>
+                    <span className="text-white/70 text-sm leading-relaxed">{item}</span>
+                  </div>
+                ))}
+              </div>
             </div>
             <div className="grid grid-cols-2 gap-4">
               {[
-                { v: "6–18", u: "месяцев", d: "цикл сделки в B2B-производстве" },
-                { v: "3–7", u: "лиц", d: "принимают решение о покупке" },
-                { v: "70%", u: "влияние", d: "экспертного контента на решение" },
-                { v: "×4", u: "ROI", d: "от специализированного подхода" },
+                { v: "6–18", u: "месяцев", d: "средний цикл B2B-сделки в промышленности" },
+                { v: "3–7", u: "лиц", d: "принимают решение о закупке" },
+                { v: "70%", u: "ЛПР", d: "изучают контент перед выбором поставщика" },
+                { v: "×4", u: "ROI", d: "от специализированного подхода vs универсального" },
               ].map((item, i) => (
-                <div key={i} className="bg-white border border-[#bda8ff]/15 p-4 rounded-xl">
+                <div key={i} className="bg-white/5 border border-white/10 p-5 rounded-xl hover:bg-white/8 transition-colors">
                   <div className="font-display text-2xl text-[#bda8ff] font-bold">{item.v}</div>
-                  <div className="text-xs text-[#595959]/60 font-mono">{item.u}</div>
-                  <div className="text-xs text-[#595959] mt-1 leading-snug">{item.d}</div>
+                  <div className="text-xs text-white/40 font-mono mt-0.5">{item.u}</div>
+                  <div className="text-xs text-white/60 mt-2 leading-snug">{item.d}</div>
                 </div>
               ))}
             </div>
@@ -585,11 +660,12 @@ const videos = [
     metrics: ["CPL снижен в несколько раз", "Системный маркетинг"],
   },
   {
-    embed: "https://vkvideo.ru/video_ext.php?oid=-102569128&id=456239192&hash=&hd=2",
-    company: "УК Андроньевская",
-    tag: "Управляющая компания",
-    story: "Управляющая компания в сфере технического обслуживания зданий нуждалась в B2B-лидах. TolkaDigital настроил контекстную рекламу и лидогенерацию. Главный результат: стоимость заявки снижена в 20 раз.",
-    metrics: ["Стоимость заявки: в 20 раз дешевле", "B2B-сегмент"],
+    embed: "https://vkvideo.ru/video_ext.php?oid=-102569128&id=456239187&hash=&hd=2",
+    company: "ЛандшафтАграр",
+    tag: "Агробизнес",
+    story: "ЛандшафтАграр — поставщик агрономических решений для крупных хозяйств. TolkaDigital выстроил систему привлечения B2B-клиентов с нуля: сайт, контент и рекламные кампании. Результат — стабильный поток целевых заявок в сложной нише.",
+    metrics: ["Системный B2B-маркетинг", "Стабильный поток заявок"],
+    projectUrl: "https://tolkadigital.ru/projects/landshaftagrar",
   },
   {
     embed: "https://vkvideo.ru/video_ext.php?oid=-102569128&id=456239250&hash=&hd=2",
@@ -639,10 +715,16 @@ function VideoReviews() {
                 <span className="text-sm font-bold text-[#2d2d2d]">{v.company}</span>
               </div>
               <p className="text-[#595959] text-sm leading-relaxed mb-4">{v.story}</p>
-              <div className="flex gap-2 flex-wrap">
+              <div className="flex gap-2 flex-wrap items-center">
                 {v.metrics.map((m) => (
                   <span key={m} className="text-xs font-bold text-white bg-[#e98c6c] px-3 py-1 rounded-full">{m}</span>
                 ))}
+                {v.projectUrl && (
+                  <a href={v.projectUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs text-[#bda8ff] font-semibold hover:underline ml-1">
+                    История проекта
+                    <Icon name="ExternalLink" size={11} />
+                  </a>
+                )}
               </div>
             </div>
           </div>
@@ -695,6 +777,7 @@ const textReviews = [
     text: "С TolkaDigital сотрудничаем уже несколько лет. За это время выручка онлайн-направления выросла с нуля до 20,9 млн рублей в месяц. Команда глубоко погружается в задачу, предлагает нестандартные решения и всегда держит нас в курсе результатов. Стоимость заявки снизилась в 2,7 раза: с 4 000 до 1 470 рублей.",
     results: ["Выручка: 0 → 20,9 млн ₽/мес", "Лид: 4 000 → 1 470 ₽"],
     stars: 5,
+    projectUrl: null,
   },
   {
     company: "Завод РТИ «Борекс»",
@@ -704,6 +787,18 @@ const textReviews = [
     text: "Обратились к TolkaDigital с задачей увеличить поток лидов в производственной нише. Результат превзошёл ожидания: количество заявок выросло в 3 раза, при этом стоимость привлечения каждого лида снизилась вдвое. Особенно ценим то, что команда разбирается в специфике производственного B2B. Работаем в удовольствие, цифры говорят сами за себя.",
     results: ["Лидов: ×3", "Стоимость лида: вдвое дешевле"],
     stars: 5,
+    projectUrl: null,
+  },
+  {
+    company: "Поставщик кислот и щелочей",
+    photo: null,
+    author: "Руководитель компании",
+    role: "Химическая отрасль",
+    text: "Обратились с задачей «упаковать» бизнес и выстроить поток клиентов в нише поставок кислот и щелочей для промышленности. TolkaDigital разработал позиционирование, создал сайт и запустил рекламу. Получили стабильный поток квалифицированных заявок от профильных предприятий.",
+    results: ["Системный маркетинг в химической нише", "Стабильный B2B-поток"],
+    stars: 5,
+    projectUrl: "https://vk.com/@tolka_digitalmarketing-himiya-biznesa-kak-my-upakovali-postavschika-kislot-i-schelo",
+    tgUrl: "https://t.me/tolkadigital/132",
   },
 ];
 
@@ -719,9 +814,9 @@ function TextReviews() {
           Что говорят<br />наши клиенты
         </h2>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {textReviews.map((r, i) => (
-            <div key={i} className="bg-white border border-[#bda8ff]/15 rounded-2xl p-8 hover:shadow-lg hover:shadow-[#bda8ff]/8 transition-all duration-300">
+            <div key={i} className="bg-white border border-[#bda8ff]/15 rounded-2xl p-8 hover:shadow-lg hover:shadow-[#bda8ff]/8 transition-all duration-300 flex flex-col">
               {/* Stars */}
               <div className="flex gap-1 mb-5">
                 {Array.from({ length: r.stars }).map((_, si) => (
@@ -732,10 +827,10 @@ function TextReviews() {
               </div>
 
               {/* Text */}
-              <p className="text-[#595959] text-sm leading-relaxed mb-6 italic">«{r.text}»</p>
+              <p className="text-[#595959] text-sm leading-relaxed mb-6 italic flex-1">«{r.text}»</p>
 
               {/* Results */}
-              <div className="flex gap-3 mb-6 flex-wrap">
+              <div className="flex gap-2 mb-4 flex-wrap">
                 {r.results.map((res) => (
                   <span key={res} className="text-xs font-semibold text-[#bda8ff] bg-[#bda8ff]/10 px-3 py-1 rounded-full">
                     {res}
@@ -743,13 +838,35 @@ function TextReviews() {
                 ))}
               </div>
 
+              {/* Project links */}
+              {(r.projectUrl || r.tgUrl) && (
+                <div className="flex gap-3 mb-4 flex-wrap">
+                  {r.projectUrl && (
+                    <a href={r.projectUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs text-[#bda8ff] font-semibold hover:underline">
+                      История проекта <Icon name="ExternalLink" size={11} />
+                    </a>
+                  )}
+                  {r.tgUrl && (
+                    <a href={r.tgUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs text-[#595959]/60 font-semibold hover:text-[#bda8ff] transition-colors">
+                      Результаты в TG <Icon name="ExternalLink" size={11} />
+                    </a>
+                  )}
+                </div>
+              )}
+
               {/* Author */}
               <div className="flex items-center gap-3 pt-5 border-t border-[#bda8ff]/10">
-                <img
-                  src={r.photo}
-                  alt={r.author}
-                  className="w-11 h-11 rounded-full object-cover flex-shrink-0 border-2 border-[#bda8ff]/20"
-                />
+                {r.photo ? (
+                  <img
+                    src={r.photo}
+                    alt={r.author}
+                    className="w-11 h-11 rounded-full object-cover flex-shrink-0 border-2 border-[#bda8ff]/20"
+                  />
+                ) : (
+                  <div className="w-11 h-11 rounded-full bg-[#bda8ff]/15 flex items-center justify-center flex-shrink-0 border-2 border-[#bda8ff]/20">
+                    <Icon name="User" size={18} className="text-[#bda8ff]" />
+                  </div>
+                )}
                 <div>
                   <div className="text-sm font-semibold text-[#2d2d2d]">{r.author}</div>
                   <div className="text-xs text-[#595959]/60">{r.role}</div>
@@ -791,6 +908,7 @@ function TelegramCTA() {
               <div>
                 <div className="text-3xl font-bold text-white">10+</div>
                 <div className="text-white/40 text-sm mt-0.5">постов в месяц</div>
+                <div className="text-white/30 text-xs mt-1 max-w-[180px] leading-snug">Каждую неделю — полезные материалы для руководителей и владельцев бизнеса, бесплатные шаблоны</div>
               </div>
             </div>
             <a
