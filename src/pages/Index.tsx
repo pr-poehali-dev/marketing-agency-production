@@ -10,6 +10,11 @@ const CASE_IMG_1 = "https://cdn.poehali.dev/projects/d4908139-bdaf-4b34-93c6-1aa
 const CASE_IMG_2 = "https://cdn.poehali.dev/projects/d4908139-bdaf-4b34-93c6-1aa8a667fe55/files/fff65d15-29b9-41b5-ae3e-89b8771b6908.jpg";
 const CASE_IMG_3 = "https://cdn.poehali.dev/projects/d4908139-bdaf-4b34-93c6-1aa8a667fe55/files/3b716b89-9abd-4b5d-9efa-408aae00587e.jpg";
 
+const AGENCY_IMG = "https://cdn.poehali.dev/projects/d4908139-bdaf-4b34-93c6-1aa8a667fe55/files/f1e5e4af-4e0e-4631-8eb6-a9283dfc54df.jpg";
+const KSENIA_PHOTO = "https://cdn.poehali.dev/projects/d4908139-bdaf-4b34-93c6-1aa8a667fe55/files/9b9932a3-47e0-4af9-a7ca-e093b25e1d64.jpg";
+const TG_POST_IMG = "https://cdn.poehali.dev/projects/d4908139-bdaf-4b34-93c6-1aa8a667fe55/files/5eaa2d30-b5c4-4e84-9e7e-6f6b2f3e459e.jpg";
+const MARIA_PHOTO = "https://static.tildacdn.com/tild3335-3731-4564-b061-666565343262/Frame_2.jpg";
+
 // ─── Nav ────────────────────────────────────────────────────────────────────
 function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -104,6 +109,16 @@ function Hero() {
       <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-[#bda8ff]/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-1/3 w-[400px] h-[400px] bg-[#e98c6c]/8 rounded-full blur-3xl pointer-events-none" />
 
+      {/* Иллюстрация справа */}
+      <div className="absolute right-0 top-0 bottom-0 w-1/2 hidden xl:block pointer-events-none">
+        <img
+          src={AGENCY_IMG}
+          alt="TolkaDigital команда"
+          className="w-full h-full object-cover opacity-20"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/60 to-transparent" />
+      </div>
+
       <div className="relative max-w-7xl mx-auto px-6 pt-24 pb-16 w-full">
         <div className="max-w-3xl">
           <div className="flex items-center gap-3 mb-8 animate-fade-in">
@@ -128,8 +143,8 @@ function Hero() {
             style={{ animationDelay: "0.2s" }}
           >
             Строим системы привлечения клиентов для промышленных компаний.
-            Окупаемость маркетинга —{" "}
-            <span className="text-[#e98c6c] font-semibold">до 2128%</span>.
+            Окупаемость маркетинга клиентов достигает{" "}
+            <span className="text-[#e98c6c] font-semibold">2128%</span>.
           </p>
 
           <div
@@ -172,7 +187,7 @@ function Hero() {
   );
 }
 
-// ─── ROI Calculator ──────────────────────────────────────────────────────────
+// ─── ROMI Calculator ──────────────────────────────────────────────────────────
 function ROICalculator() {
   const [revenue, setRevenue] = useState(50);
   const [margin, setMargin] = useState(20);
@@ -189,13 +204,13 @@ function ROICalculator() {
           <div>
             <div className="flex items-center gap-3 mb-6">
               <div className="h-px w-8 bg-[#bda8ff]" />
-              <span className="text-[#bda8ff] text-xs font-mono uppercase tracking-[0.25em] font-semibold">Калькулятор ROI</span>
+              <span className="text-[#bda8ff] text-xs font-mono uppercase tracking-[0.25em] font-semibold">Калькулятор ROMI</span>
             </div>
             <h2 className="font-display text-4xl md:text-5xl text-[#2d2d2d] mb-6 leading-tight">
               Рассчитайте потенциал<br />вашего роста
             </h2>
             <p className="text-[#595959] text-base leading-relaxed mb-8">
-              Укажите параметры вашей компании — покажем, сколько дополнительной прибыли принесёт системный маркетинг.
+              Укажите параметры вашей компании, и мы покажем, сколько дополнительной прибыли принесёт системный маркетинг.
             </p>
 
             <div className="space-y-8">
@@ -247,11 +262,11 @@ function ROICalculator() {
               </div>
 
               <div className="pb-6 border-b border-[#bda8ff]/15">
-                <div className="text-[#595959] text-sm mb-2">ROI маркетинга</div>
+                <div className="text-[#595959] text-sm mb-2">ROMI маркетинга</div>
                 <div className={`font-display text-5xl font-bold ${roi > 0 ? "text-[#bda8ff]" : "text-[#595959]"}`}>
                   {roi > 0 ? `${roi.toLocaleString("ru-RU")}%` : "—"}
                 </div>
-                <div className="text-xs text-[#595959]/60 font-mono mt-1">возврат на вложенный бюджет</div>
+                <div className="text-xs text-[#595959]/60 font-mono mt-1">возврат на маркетинговые инвестиции</div>
               </div>
 
               <div className="text-xs text-[#595959]/50 leading-relaxed">
@@ -400,7 +415,7 @@ const services = [
   { icon: "FileText", title: "Контент-маркетинг", desc: "Экспертный контент для ЛПР: технические статьи, производственные кейсы, видеообзоры продукции и отраслевые обзоры.", tags: ["Технические статьи", "Кейсы клиентов", "Видео о продукте", "Экспертный блог"] },
   { icon: "Users", title: "Лидогенерация", desc: "Системы привлечения квалифицированных заявок от промышленных покупателей и интеграция с CRM.", tags: ["Квалификация лидов", "Воронка продаж", "CRM-интеграция", "B2B-лиды"] },
   { icon: "Globe", title: "Продающий сайт", desc: "Разработка сайтов под задачи производственных компаний. Фокус на доверие, конверсию и простоту контакта.", tags: ["Конверсионный дизайн", "Каталог продукции", "Формы захвата", "Мобильная версия"] },
-  { icon: "BarChart2", title: "Аналитика и отчётность", desc: "Прозрачные дашборды. Каждое решение обосновано данными, каждый рубль бюджета под контролем.", tags: ["Сквозная аналитика", "ROI по каналам", "Дашборды", "KPI-отчёты"] },
+  { icon: "BarChart2", title: "Аналитика и отчётность", desc: "Прозрачные дашборды. Каждое решение обосновано данными, каждый рубль бюджета под контролем.", tags: ["Сквозная аналитика", "ROMI по каналам", "Дашборды", "KPI-отчёты"] },
 ];
 
 function Services() {
@@ -486,7 +501,7 @@ function Approach() {
                 Почему промышленным компаниям нужен специализированный маркетинг
               </h3>
               <p className="text-[#595959] text-sm leading-relaxed">
-                Производственный маркетинг отличается от любого другого. Длинные циклы сделок, сложные технические продукты, консервативные ЛПР — это особенности, которые нужно использовать. Мы знаем, как это делать.
+                Производственный маркетинг отличается от любого другого. Длинные циклы сделок, сложные технические продукты, консервативные ЛПР. Это особенности, которые нужно использовать. Мы знаем, как это делать.
               </p>
             </div>
             <div className="grid grid-cols-2 gap-4">
@@ -556,33 +571,38 @@ function Advantages() {
 // ─── Video Interviews ────────────────────────────────────────────────────────
 const videos = [
   {
-    url: "https://vkvideo.ru/video-102569128_456239198?t=5s",
     embed: "https://vkvideo.ru/video_ext.php?oid=-102569128&id=456239198&hash=&hd=2",
-    company: "Клиент о результатах",
-    desc: "Как выстроили поток заявок для производственной компании",
+    company: "ZetaPrint",
+    tag: "Типография",
+    story: "ZetaPrint пришли с нуля: без сайта, без онлайн-продаж. TolkaDigital разработал сайт и запустил контекстную рекламу. За период сотрудничества онлайн-выручка выросла до 20,9 млн рублей в месяц. Стоимость заявки снизилась с 4 000 до 1 470 рублей.",
+    metrics: ["0 → 20,9 млн ₽/мес", "Лид: 1 470 ₽"],
   },
   {
-    url: "https://vkvideo.ru/video-102569128_456239251?t=0s",
     embed: "https://vkvideo.ru/video_ext.php?oid=-102569128&id=456239251&hash=&hd=2",
-    company: "Отзыв клиента",
-    desc: "Результаты сотрудничества с Tolka Digital",
+    company: "АртСувениры",
+    tag: "Производство сувениров",
+    story: "АртСувениры обратились с хаотичным маркетингом без системы и аналитики. TolkaDigital выстроил управляемую воронку с прозрачными контрольными точками. Стоимость лида снизилась в несколько раз, появилась чёткая управляемость каналов.",
+    metrics: ["CPL снижен в несколько раз", "Системный маркетинг"],
   },
   {
-    url: "https://vkvideo.ru/video-102569128_456239192?t=1s",
     embed: "https://vkvideo.ru/video_ext.php?oid=-102569128&id=456239192&hash=&hd=2",
-    company: "Интервью с клиентом",
-    desc: "Опыт работы с агентством и достигнутые результаты",
+    company: "УК Андроньевская",
+    tag: "Управляющая компания",
+    story: "Управляющая компания в сфере технического обслуживания зданий нуждалась в B2B-лидах. TolkaDigital настроил контекстную рекламу и лидогенерацию. Главный результат: стоимость заявки снижена в 20 раз.",
+    metrics: ["Стоимость заявки: в 20 раз дешевле", "B2B-сегмент"],
   },
   {
-    url: "https://vkvideo.ru/video-102569128_456239250?list=ln-bqKYzRGzsLDKZNnFtR&t=1s",
     embed: "https://vkvideo.ru/video_ext.php?oid=-102569128&id=456239250&hash=&hd=2",
-    company: "История успеха",
-    desc: "Как маркетинг изменил бизнес производственной компании",
+    company: "Динамика",
+    tag: "Протезирование",
+    story: "Медицинский центр протезирования конечностей получил новый сайт и рекламные кампании. TolkaDigital точно проработал целевую аудиторию в узкой нише. ROMI достиг 2128%, доля рекламных расходов составила всего 4,49%.",
+    metrics: ["ROMI: 2 128%", "89 заявок в месяц"],
   },
 ];
 
 function VideoReviews() {
   const [active, setActive] = useState(0);
+  const v = videos[active];
 
   return (
     <section className="py-24 bg-white" id="video-reviews">
@@ -596,31 +616,41 @@ function VideoReviews() {
             Клиенты рассказывают<br />о результатах
           </h2>
           <p className="text-[#595959] text-base max-w-xs mt-4 md:mt-0 leading-relaxed">
-            Реальные владельцы производственных компаний — о сотрудничестве с Tolka Digital
+            Реальные владельцы компаний о сотрудничестве с TolkaDigital
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-6">
-          {/* Main video player */}
-          <div className="lg:col-span-2">
+        <div className="grid lg:grid-cols-5 gap-8">
+          {/* Main video + story */}
+          <div className="lg:col-span-3 flex flex-col gap-5">
             <div className="aspect-video rounded-2xl overflow-hidden bg-[#f9f7ff] border border-[#bda8ff]/15">
               <iframe
-                src={videos[active].embed}
+                src={v.embed}
                 className="w-full h-full"
                 allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
                 frameBorder="0"
                 allowFullScreen
               />
             </div>
-            <div className="mt-4">
-              <div className="font-semibold text-[#2d2d2d]">{videos[active].company}</div>
-              <div className="text-sm text-[#595959] mt-1">{videos[active].desc}</div>
+            {/* Story card */}
+            <div className="bg-[#f9f7ff] border border-[#bda8ff]/15 rounded-2xl p-6">
+              <div className="flex items-center gap-2 mb-3">
+                <span className="text-xs font-semibold text-[#bda8ff] bg-[#bda8ff]/10 px-2.5 py-1 rounded-full">{v.tag}</span>
+                <span className="text-sm font-bold text-[#2d2d2d]">{v.company}</span>
+              </div>
+              <p className="text-[#595959] text-sm leading-relaxed mb-4">{v.story}</p>
+              <div className="flex gap-2 flex-wrap">
+                {v.metrics.map((m) => (
+                  <span key={m} className="text-xs font-bold text-white bg-[#e98c6c] px-3 py-1 rounded-full">{m}</span>
+                ))}
+              </div>
             </div>
           </div>
 
           {/* Playlist */}
-          <div className="flex flex-col gap-3">
-            {videos.map((v, i) => (
+          <div className="lg:col-span-2 flex flex-col gap-3">
+            <div className="text-xs text-[#595959]/50 font-semibold uppercase tracking-wider mb-1">Все интервью</div>
+            {videos.map((vid, i) => (
               <button
                 key={i}
                 onClick={() => setActive(i)}
@@ -630,28 +660,24 @@ function VideoReviews() {
                     : "border-[#bda8ff]/15 bg-white hover:border-[#bda8ff]/40"
                 }`}
               >
-                <div className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 ${
+                <div className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${
                   active === i ? "bg-[#bda8ff]" : "bg-[#bda8ff]/10"
                 }`}>
                   <Icon name="Play" size={16} className={active === i ? "text-white" : "text-[#bda8ff]"} />
                 </div>
                 <div className="min-w-0">
                   <div className={`text-sm font-semibold truncate ${active === i ? "text-[#2d2d2d]" : "text-[#595959]"}`}>
-                    {v.company}
+                    {vid.company}
                   </div>
-                  <div className="text-xs text-[#595959]/60 mt-0.5 leading-snug line-clamp-2">{v.desc}</div>
+                  <div className="text-xs text-[#595959]/50 mt-0.5">{vid.tag}</div>
+                  <div className="flex gap-1 mt-1 flex-wrap">
+                    {vid.metrics.map((m) => (
+                      <span key={m} className="text-xs text-[#bda8ff] bg-[#bda8ff]/8 px-1.5 py-0.5 rounded">{m}</span>
+                    ))}
+                  </div>
                 </div>
               </button>
             ))}
-            <a
-              href="https://vkvideo.ru/@tolkadigital"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 border-2 border-[#bda8ff] text-[#bda8ff] font-semibold py-3 rounded-xl hover:bg-[#bda8ff]/8 transition-all duration-200 text-sm mt-1"
-            >
-              Все видео
-              <Icon name="ExternalLink" size={14} />
-            </a>
           </div>
         </div>
       </div>
@@ -663,20 +689,20 @@ function VideoReviews() {
 const textReviews = [
   {
     company: "ZetaPrint",
-    logo: "🖨️",
-    author: "Руководитель ZetaPrint",
-    role: "Генеральный директор",
-    text: "С Tolka Digital сотрудничаем уже несколько лет. За это время выручка онлайн-направления выросла с нуля до 20,9 млн рублей в месяц. Команда глубоко погружается в задачу, предлагает нестандартные решения и всегда держит нас в курсе результатов. Стоимость заявки снизилась в 2,7 раза — с 4 000 до 1 470 рублей. Рекомендуем как надёжного партнёра для бизнеса, который хочет реального роста.",
+    photo: MARIA_PHOTO,
+    author: "Мария",
+    role: "Руководитель ZetaPrint",
+    text: "С TolkaDigital сотрудничаем уже несколько лет. За это время выручка онлайн-направления выросла с нуля до 20,9 млн рублей в месяц. Команда глубоко погружается в задачу, предлагает нестандартные решения и всегда держит нас в курсе результатов. Стоимость заявки снизилась в 2,7 раза: с 4 000 до 1 470 рублей.",
     results: ["Выручка: 0 → 20,9 млн ₽/мес", "Лид: 4 000 → 1 470 ₽"],
     stars: 5,
   },
   {
     company: "Завод РТИ «Борекс»",
-    logo: "⚙️",
-    author: "Коммерческий директор РТИ «Борекс»",
-    role: "Коммерческий директор",
-    text: "Обратились к Tolka Digital с задачей увеличить поток лидов в производственной нише. Результат превзошёл ожидания: количество заявок выросло в 3 раза, при этом стоимость привлечения каждого лида снизилась вдвое. Особенно ценим то, что команда разбирается в специфике производственного B2B — не нужно объяснять базовые вещи. Работаем в удовольствие, цифры говорят сами за себя.",
-    results: ["Лидов: ×3", "Стоимость лида: ÷2"],
+    photo: KSENIA_PHOTO,
+    author: "Ксения",
+    role: "Коммерческий директор, Завод РТИ «Борекс»",
+    text: "Обратились к TolkaDigital с задачей увеличить поток лидов в производственной нише. Результат превзошёл ожидания: количество заявок выросло в 3 раза, при этом стоимость привлечения каждого лида снизилась вдвое. Особенно ценим то, что команда разбирается в специфике производственного B2B. Работаем в удовольствие, цифры говорят сами за себя.",
+    results: ["Лидов: ×3", "Стоимость лида: вдвое дешевле"],
     stars: 5,
   },
 ];
@@ -719,12 +745,14 @@ function TextReviews() {
 
               {/* Author */}
               <div className="flex items-center gap-3 pt-5 border-t border-[#bda8ff]/10">
-                <div className="w-10 h-10 rounded-full bg-[#bda8ff]/10 flex items-center justify-center text-lg flex-shrink-0">
-                  {r.logo}
-                </div>
+                <img
+                  src={r.photo}
+                  alt={r.author}
+                  className="w-11 h-11 rounded-full object-cover flex-shrink-0 border-2 border-[#bda8ff]/20"
+                />
                 <div>
                   <div className="text-sm font-semibold text-[#2d2d2d]">{r.author}</div>
-                  <div className="text-xs text-[#595959]/60">{r.company} · {r.role}</div>
+                  <div className="text-xs text-[#595959]/60">{r.role}</div>
                 </div>
               </div>
             </div>
@@ -740,8 +768,8 @@ function TelegramCTA() {
   return (
     <section className="py-20 bg-[#2d2d2d]">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-10">
-          <div className="max-w-xl">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div>
             <div className="flex items-center gap-3 mb-5">
               <div className="w-10 h-10 bg-[#bda8ff]/20 rounded-xl flex items-center justify-center">
                 <Icon name="Send" size={20} className="text-[#bda8ff]" />
@@ -749,17 +777,21 @@ function TelegramCTA() {
               <span className="text-[#bda8ff] text-xs font-mono uppercase tracking-[0.25em] font-semibold">Telegram-канал</span>
             </div>
             <h2 className="text-3xl md:text-4xl text-white font-bold leading-tight mb-4">
-              Подпишитесь на наш канал<br />о промышленном маркетинге
+              Подпишитесь на наш канал о промышленном маркетинге
             </h2>
-            <p className="text-white/60 text-base leading-relaxed">
-              Кейсы, разборы, лайфхаки и инсайты из реальной практики с производственными компаниями. Без воды — только то, что работает.
+            <p className="text-white/60 text-base leading-relaxed mb-8">
+              Кейсы, разборы и инсайты из реальной практики с производственными компаниями. Без воды, только то, что работает.
             </p>
-          </div>
-
-          <div className="flex flex-col items-center gap-5 flex-shrink-0">
-            <div className="bg-white/5 border border-white/10 rounded-2xl px-8 py-6 text-center">
-              <div className="text-4xl font-bold text-white mb-1">1 200+</div>
-              <div className="text-white/50 text-sm">подписчиков</div>
+            <div className="flex items-center gap-6 mb-8">
+              <div>
+                <div className="text-3xl font-bold text-white">1 200+</div>
+                <div className="text-white/40 text-sm mt-0.5">подписчиков</div>
+              </div>
+              <div className="w-px h-10 bg-white/10" />
+              <div>
+                <div className="text-3xl font-bold text-white">10+</div>
+                <div className="text-white/40 text-sm mt-0.5">постов в месяц</div>
+              </div>
             </div>
             <a
               href="https://t.me/tolkadigital"
@@ -770,6 +802,26 @@ function TelegramCTA() {
               <Icon name="Send" size={18} />
               Подписаться в Telegram
             </a>
+          </div>
+
+          {/* Post preview */}
+          <div className="flex justify-center md:justify-end">
+            <div className="w-full max-w-sm bg-white/5 border border-white/10 rounded-2xl overflow-hidden">
+              <img
+                src={TG_POST_IMG}
+                alt="Пост из Telegram-канала TolkaDigital"
+                className="w-full aspect-square object-cover"
+              />
+              <div className="p-4 flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-[#bda8ff] flex items-center justify-center flex-shrink-0">
+                  <Icon name="Send" size={14} className="text-white" />
+                </div>
+                <div>
+                  <div className="text-white text-sm font-semibold">TolkaDigital</div>
+                  <div className="text-white/40 text-xs">Маркетинг для производства</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -970,10 +1022,7 @@ function Footer() {
                 <Icon name="Send" size={14} className="text-[#bda8ff]" />
                 @tolkadigital
               </a>
-              <span className="flex items-center gap-2 text-sm text-white/50">
-                <Icon name="MapPin" size={14} className="text-[#bda8ff]" />
-                Россия, по всей стране
-              </span>
+
             </div>
             <a
               href="#contacts"
@@ -985,7 +1034,7 @@ function Footer() {
         </div>
 
         <div className="pt-6 border-t border-white/8 flex flex-col md:flex-row items-center justify-between gap-3">
-          <div className="text-xs text-white/25">© 2024 Tolka Digital. Все права защищены</div>
+          <div className="text-xs text-white/25">© 2024 TolkaDigital. Все права защищены</div>
           <div className="flex items-center gap-6">
             <a href="#" className="text-xs text-white/25 hover:text-white/50 transition-colors">Политика конфиденциальности</a>
             <a href="#" className="text-xs text-white/25 hover:text-white/50 transition-colors">Обработка персональных данных</a>
