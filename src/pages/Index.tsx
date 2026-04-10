@@ -12,8 +12,12 @@ const CASE_IMG_3 = "https://cdn.poehali.dev/projects/d4908139-bdaf-4b34-93c6-1aa
 
 const AGENCY_IMG = "https://cdn.poehali.dev/projects/d4908139-bdaf-4b34-93c6-1aa8a667fe55/files/f1e5e4af-4e0e-4631-8eb6-a9283dfc54df.jpg";
 const KSENIA_PHOTO = "https://cdn.poehali.dev/projects/d4908139-bdaf-4b34-93c6-1aa8a667fe55/files/9b9932a3-47e0-4af9-a7ca-e093b25e1d64.jpg";
-const TG_POST_IMG = "https://cdn.poehali.dev/projects/d4908139-bdaf-4b34-93c6-1aa8a667fe55/files/5eaa2d30-b5c4-4e84-9e7e-6f6b2f3e459e.jpg";
-const MARIA_PHOTO = "https://static.tildacdn.com/tild3335-3731-4564-b061-666565343262/Frame_2.jpg";
+const TG_POST_IMG = "https://cdn.poehali.dev/files/de6b2b24-bfff-4b7d-8dd8-5020dfd781b8.jpg";
+const MARIA_PHOTO = "https://cdn.poehali.dev/files/54d4b1dc-d5fa-4313-8a41-628bcb3fe25f.jpg";
+const HERO_ILLUSTRATION = "https://cdn.poehali.dev/files/891d21d8-01ec-493f-a07e-4cbef96c6e90.png";
+const WHY_US_ILLUSTRATION = "https://cdn.poehali.dev/files/36a19d41-5a58-4a89-96d0-97ea9e83e23d.png";
+const AUDIT_ILLUSTRATION = "https://cdn.poehali.dev/files/6f2a6e1c-2fa7-4348-9a55-689c7052567f.png";
+const EXCEL_PREVIEW = "https://optim.tildacdn.com/tild3238-3238-4632-b035-303632316163/-/resize/466x/-/format/webp/729shots_so.png.webp";
 
 // ─── Nav ────────────────────────────────────────────────────────────────────
 function Nav() {
@@ -110,13 +114,14 @@ function Hero() {
       <div className="absolute bottom-0 left-1/3 w-[400px] h-[400px] bg-[#e98c6c]/8 rounded-full blur-3xl pointer-events-none" />
 
       {/* Иллюстрация справа */}
-      <div className="absolute right-0 top-0 bottom-0 w-1/2 hidden xl:block pointer-events-none">
+      <div className="absolute right-0 top-0 bottom-0 w-[48%] hidden xl:flex items-center justify-end pointer-events-none pr-4">
         <img
-          src={AGENCY_IMG}
-          alt="TolkaDigital команда"
-          className="w-full h-full object-cover opacity-20"
+          src={HERO_ILLUSTRATION}
+          alt="TolkaDigital — маркетинг для производства"
+          className="w-full h-full object-contain object-right"
+          style={{ maxHeight: "90vh" }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/60 to-transparent" />
+        <div className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-white to-transparent" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-6 pt-24 pb-16 w-full">
@@ -188,26 +193,35 @@ function Hero() {
             className="mb-10 animate-fade-in"
             style={{ animationDelay: "0.38s" }}
           >
-            <div className="inline-flex items-center gap-2 bg-[#bda8ff]/8 border border-[#bda8ff]/25 rounded-2xl px-5 py-3.5">
-              <div className="w-8 h-8 bg-[#bda8ff]/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                <Icon name="FileSpreadsheet" size={16} className="text-[#bda8ff]" fallback="File" />
+            <div className="flex items-stretch gap-4 bg-white border-2 border-[#bda8ff]/40 rounded-2xl overflow-hidden shadow-md shadow-[#bda8ff]/10 max-w-xl">
+              {/* Excel preview */}
+              <div className="w-28 flex-shrink-0 bg-[#f9f7ff] overflow-hidden">
+                <img
+                  src={EXCEL_PREVIEW}
+                  alt="Шаблон Excel"
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <div className="flex-1">
-                <div className="text-xs text-[#595959]/60 font-mono uppercase tracking-wider mb-1">Бесплатные шаблоны</div>
-                <div className="flex flex-col sm:flex-row gap-2">
+              <div className="flex-1 py-4 pr-4">
+                <div className="flex items-center gap-2 mb-2">
+                  <div className="w-6 h-6 bg-[#bda8ff]/20 rounded flex items-center justify-center flex-shrink-0">
+                    <Icon name="FileSpreadsheet" size={13} className="text-[#bda8ff]" fallback="File" />
+                  </div>
+                  <div className="text-xs text-[#bda8ff] font-mono uppercase tracking-wider font-bold">Бесплатные шаблоны Excel</div>
+                </div>
+                <div className="flex flex-col gap-2">
                   <a
                     href="#contacts"
-                    className="inline-flex items-center gap-1.5 text-sm text-[#2d2d2d] font-semibold hover:text-[#bda8ff] transition-colors"
+                    className="inline-flex items-center gap-2 bg-[#e98c6c] text-white text-xs font-bold px-4 py-2 rounded-full hover:bg-[#e98c6c]/90 transition-colors w-fit shadow-sm"
                   >
-                    <Icon name="Download" size={13} className="text-[#e98c6c]" />
-                    Шаблон расчёта окупаемости маркетинга
+                    <Icon name="Download" size={12} />
+                    Шаблон расчёта окупаемости
                   </a>
-                  <span className="hidden sm:inline text-[#bda8ff]/40">·</span>
                   <a
                     href="#contacts"
-                    className="inline-flex items-center gap-1.5 text-sm text-[#2d2d2d] font-semibold hover:text-[#bda8ff] transition-colors"
+                    className="inline-flex items-center gap-2 bg-[#bda8ff] text-white text-xs font-bold px-4 py-2 rounded-full hover:bg-[#bda8ff]/90 transition-colors w-fit shadow-sm"
                   >
-                    <Icon name="Download" size={13} className="text-[#e98c6c]" />
+                    <Icon name="Download" size={12} />
                     Шаблон отчёта по рекламе
                   </a>
                 </div>
@@ -617,12 +631,24 @@ function Advantages() {
           <div className="h-px w-8 bg-[#bda8ff]" />
           <span className="text-[#bda8ff] text-xs font-mono uppercase tracking-[0.25em] font-semibold">Преимущества</span>
         </div>
-        <h2 className="font-display text-4xl md:text-5xl text-[#2d2d2d] mb-4 leading-tight">
-          Почему нас выбирают<br />производственные компании
-        </h2>
-        <p className="text-[#595959] text-base max-w-lg mb-16 leading-relaxed">
-          Узкая специализация на промышленном сегменте, а не универсальное агентство для всех.
-        </p>
+        <div className="flex flex-col lg:flex-row lg:items-start lg:gap-12 mb-16">
+          <div className="flex-1">
+            <h2 className="font-display text-4xl md:text-5xl text-[#2d2d2d] mb-4 leading-tight">
+              Почему нас выбирают<br />производственные компании
+            </h2>
+            <p className="text-[#595959] text-base max-w-lg leading-relaxed">
+              Узкая специализация на промышленном сегменте, а не универсальное агентство для всех.
+            </p>
+          </div>
+          <div className="flex-shrink-0 lg:w-64 xl:w-80 mt-8 lg:mt-0">
+            <img
+              src={WHY_US_ILLUSTRATION}
+              alt="Кто гарантирует результат"
+              className="w-full object-contain"
+              style={{ maxHeight: "320px" }}
+            />
+          </div>
+        </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {advantages.map((a, i) => (
@@ -922,11 +948,12 @@ function TelegramCTA() {
 
           {/* Post preview */}
           <div className="flex justify-center md:justify-end">
-            <div className="w-full max-w-sm bg-white/5 border border-white/10 rounded-2xl overflow-hidden">
+            <div className="w-full max-w-xs bg-white/5 border border-white/10 rounded-3xl overflow-hidden shadow-2xl shadow-black/30">
               <img
                 src={TG_POST_IMG}
                 alt="Пост из Telegram-канала TolkaDigital"
-                className="w-full aspect-square object-cover"
+                className="w-full object-cover object-top"
+                style={{ maxHeight: "460px" }}
               />
               <div className="p-4 flex items-center gap-3">
                 <div className="w-8 h-8 rounded-full bg-[#bda8ff] flex items-center justify-center flex-shrink-0">
@@ -972,7 +999,7 @@ function Contacts() {
             <p className="text-[#595959] text-base leading-relaxed mb-8">
               Расскажем, где у вашей компании скрыт потенциал роста. Аудит занимает 45 минут и ни к чему не обязывает.
             </p>
-            <div className="space-y-4">
+            <div className="space-y-4 mb-8">
               {[
                 "Анализируем текущие каналы и их эффективность",
                 "Находим точки роста и узкие места в воронке",
@@ -987,6 +1014,12 @@ function Contacts() {
                 </div>
               ))}
             </div>
+            <img
+              src={AUDIT_ILLUSTRATION}
+              alt="Иллюстрация аудита"
+              className="w-full max-w-sm object-contain"
+              style={{ maxHeight: "280px" }}
+            />
           </div>
 
           <div className="bg-[#f9f7ff] border border-[#bda8ff]/20 rounded-2xl p-8 shadow-lg shadow-[#bda8ff]/8">
