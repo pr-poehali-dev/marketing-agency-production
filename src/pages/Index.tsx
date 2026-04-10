@@ -615,40 +615,37 @@ function Advantages() {
           <div className="h-px w-8 bg-[#bda8ff]" />
           <span className="text-[#bda8ff] text-xs font-mono uppercase tracking-[0.25em] font-semibold">Преимущества</span>
         </div>
-        <div className="grid lg:grid-cols-2 gap-12 xl:gap-20 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 xl:gap-12 items-stretch">
           {/* Тезисы слева */}
-          <div>
+          <div className="flex flex-col justify-center">
             <h2 className="font-display text-4xl md:text-5xl text-[#2d2d2d] mb-3 leading-tight">
               Почему нас выбирают<br />производственные компании
             </h2>
-            <p className="text-[#595959] text-base mb-10 leading-relaxed">
+            <p className="text-[#595959] text-base mb-8 leading-relaxed">
               Узкая специализация на промышленном сегменте, а не универсальное агентство для всех.
             </p>
-            <div className="space-y-0 divide-y divide-[#bda8ff]/15">
+            <div className="divide-y divide-[#bda8ff]/15">
               {advantages.map((a, i) => (
-                <div key={i} className="group flex items-start gap-4 py-5 hover:bg-[#bda8ff]/4 -mx-4 px-4 rounded-xl transition-colors duration-200">
-                  <div className="w-10 h-10 bg-[#bda8ff]/12 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-[#bda8ff]/22 transition-colors duration-300 mt-0.5">
-                    <Icon name={a.icon} fallback="Circle" size={18} className="text-[#bda8ff]" />
+                <div key={i} className="group flex items-start gap-4 py-4 hover:bg-[#bda8ff]/4 -mx-3 px-3 rounded-xl transition-colors duration-200">
+                  <div className="w-9 h-9 bg-[#bda8ff]/12 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-[#bda8ff]/22 transition-colors duration-300 mt-0.5">
+                    <Icon name={a.icon} fallback="Circle" size={17} className="text-[#bda8ff]" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h3 className="text-[#2d2d2d] font-semibold text-sm mb-1">{a.title}</h3>
+                    <h3 className="text-[#2d2d2d] font-semibold text-base mb-1">{a.title}</h3>
                     <p className="text-[#595959] text-sm leading-relaxed">{a.desc}</p>
-                  </div>
-                  <div className="w-6 h-6 rounded-full bg-[#bda8ff]/10 flex items-center justify-center flex-shrink-0 mt-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <Icon name="ChevronRight" size={12} className="text-[#bda8ff]" />
                   </div>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Иллюстрация справа */}
+          {/* Иллюстрация справа — занимает всю высоту */}
           <div className="flex items-center justify-center lg:justify-end">
             <img
               src={WHY_US_ILLUSTRATION}
               alt="Кто гарантирует результат"
-              className="w-full max-w-md object-contain drop-shadow-xl"
-              style={{ maxHeight: "560px" }}
+              className="w-full object-contain drop-shadow-xl"
+              style={{ maxHeight: "700px" }}
             />
           </div>
         </div>
@@ -824,9 +821,31 @@ function TextReviews() {
           <div className="h-px w-8 bg-[#bda8ff]" />
           <span className="text-[#bda8ff] text-xs font-mono uppercase tracking-[0.25em] font-semibold">Отзывы клиентов</span>
         </div>
-        <h2 className="text-4xl md:text-5xl text-[#2d2d2d] font-bold leading-tight mb-12">
-          Что говорят<br />наши клиенты
-        </h2>
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+          <h2 className="text-4xl md:text-5xl text-[#2d2d2d] font-bold leading-tight">
+            Что говорят<br />наши клиенты
+          </h2>
+          <div className="flex flex-col gap-3 md:text-right md:items-end max-w-xs">
+            <div className="flex items-center gap-2 md:flex-row-reverse">
+              <div className="w-7 h-7 rounded-full bg-[#bda8ff]/15 flex items-center justify-center flex-shrink-0">
+                <Icon name="Clock" size={13} className="text-[#bda8ff]" />
+              </div>
+              <span className="text-[#595959] text-sm leading-snug">Клиенты работают с нами годами — максимальный срок <strong className="text-[#2d2d2d]">9 лет</strong></span>
+            </div>
+            <div className="flex items-center gap-2 md:flex-row-reverse">
+              <div className="w-7 h-7 rounded-full bg-[#bda8ff]/15 flex items-center justify-center flex-shrink-0">
+                <Icon name="Users" size={13} className="text-[#bda8ff]" />
+              </div>
+              <span className="text-[#595959] text-sm leading-snug">Средний срок сотрудничества <strong className="text-[#2d2d2d]">4,5 года</strong></span>
+            </div>
+            <div className="flex items-center gap-2 md:flex-row-reverse">
+              <div className="w-7 h-7 rounded-full bg-[#e98c6c]/15 flex items-center justify-center flex-shrink-0">
+                <Icon name="Star" size={13} className="text-[#e98c6c]" />
+              </div>
+              <span className="text-[#595959] text-sm leading-snug">Все отзывы — реальные клиенты с подтверждёнными результатами</span>
+            </div>
+          </div>
+        </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {textReviews.map((r, i) => (
@@ -909,7 +928,7 @@ function TelegramCTA() {
               <span className="text-[#bda8ff] text-xs font-mono uppercase tracking-[0.25em] font-semibold">Telegram-канал</span>
             </div>
             <h2 className="text-3xl md:text-4xl text-white font-bold leading-tight mb-4">
-              Подпишитесь на наш канал о промышленном маркетинге
+              Подпишитесь на наш канал о маркетинге
             </h2>
             <p className="text-white/60 text-base leading-relaxed mb-8">
               Кейсы, разборы и инсайты из реальной практики с производственными компаниями. Без воды, только то, что работает.
@@ -1015,12 +1034,7 @@ function ContactCard({
       {/* Top accent strip */}
       <div className="h-1.5 w-full" style={{ background: accent }} />
 
-      {/* Illustration bg */}
-      {illustration && (
-        <div className="absolute bottom-0 right-0 w-40 h-40 pointer-events-none opacity-10">
-          <img src={illustration} alt="" className="w-full h-full object-contain object-bottom" />
-        </div>
-      )}
+
 
       <div className="flex flex-col flex-1 p-7">
         {/* Tag + icon */}
@@ -1116,7 +1130,6 @@ function Contacts() {
             ]}
             btnLabel="Записаться на консультацию"
             btnColor="#bda8ff"
-            illustration={AUDIT_ILLUSTRATION}
           />
           <ContactCard
             accent="#e98c6c"
@@ -1131,7 +1144,6 @@ function Contacts() {
             ]}
             btnLabel="Записаться на аудит"
             btnColor="#e98c6c"
-            illustration={AUDIT_ILLUSTRATION}
           />
           <ContactCard
             accent="#5b4fcf"

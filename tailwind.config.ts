@@ -19,10 +19,10 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				display: ["Arial", "sans-serif"],
-				body: ["Arial", "sans-serif"],
+				display: ["Inter", "sans-serif"],
+				body: ["Inter", "sans-serif"],
 				mono: ["'Courier New'", "monospace"],
-				sans: ["Arial", "sans-serif"],
+				sans: ["Inter", "sans-serif"],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
