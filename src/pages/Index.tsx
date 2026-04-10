@@ -155,7 +155,7 @@ function Hero() {
             className="font-display text-5xl md:text-7xl text-[#2d2d2d] leading-[1.05] mb-6 animate-fade-in"
             style={{ animationDelay: "0.1s" }}
           >
-            Производство растёт
+            Производство растёт,
             <span className="text-[#bda8ff]">когда за маркетинг</span>
             <br />
             отвечают эксперты
