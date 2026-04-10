@@ -193,34 +193,18 @@ function Hero() {
             className="mb-10 animate-fade-in"
             style={{ animationDelay: "0.38s" }}
           >
-            <div className="flex items-stretch gap-4 bg-white border-2 border-[#bda8ff]/40 rounded-2xl overflow-hidden shadow-md shadow-[#bda8ff]/10 max-w-xl">
-              {/* Excel preview */}
-              <div className="w-28 flex-shrink-0 bg-[#f9f7ff] overflow-hidden">
-                <img
-                  src={EXCEL_PREVIEW}
-                  alt="Шаблон Excel"
-                  className="w-full h-full object-cover"
-                />
+            <div className="inline-flex items-center gap-4 bg-white border-2 border-[#bda8ff]/40 rounded-2xl px-5 py-4 shadow-md shadow-[#bda8ff]/10">
+              <div className="w-10 h-10 bg-[#bda8ff]/15 rounded-xl flex items-center justify-center flex-shrink-0">
+                <Icon name="FileSpreadsheet" size={20} className="text-[#bda8ff]" fallback="File" />
               </div>
-              <div className="flex-1 py-4 pr-4">
-                <div className="flex items-center gap-2 mb-2">
-                  <div className="w-6 h-6 bg-[#bda8ff]/20 rounded flex items-center justify-center flex-shrink-0">
-                    <Icon name="FileSpreadsheet" size={13} className="text-[#bda8ff]" fallback="File" />
-                  </div>
-                  <div className="text-xs text-[#bda8ff] font-mono uppercase tracking-wider font-bold">Бесплатные шаблоны Excel</div>
-                </div>
-                <div className="flex flex-col gap-2">
-                  <a
-                    href="#contacts"
-                    className="inline-flex items-center gap-2 bg-[#e98c6c] text-white text-xs font-bold px-4 py-2 rounded-full hover:bg-[#e98c6c]/90 transition-colors w-fit shadow-sm"
-                  >
+              <div>
+                <div className="text-xs text-[#bda8ff] font-mono uppercase tracking-wider font-bold mb-2">Бесплатные шаблоны Excel</div>
+                <div className="flex flex-col sm:flex-row gap-2">
+                  <a href="#contacts" className="inline-flex items-center gap-1.5 bg-[#e98c6c] text-white text-xs font-bold px-4 py-2 rounded-full hover:bg-[#e98c6c]/90 transition-colors shadow-sm">
                     <Icon name="Download" size={12} />
-                    Шаблон расчёта окупаемости
+                    Расчёт окупаемости маркетинга
                   </a>
-                  <a
-                    href="#contacts"
-                    className="inline-flex items-center gap-2 bg-[#bda8ff] text-white text-xs font-bold px-4 py-2 rounded-full hover:bg-[#bda8ff]/90 transition-colors w-fit shadow-sm"
-                  >
+                  <a href="#contacts" className="inline-flex items-center gap-1.5 bg-[#bda8ff] text-white text-xs font-bold px-4 py-2 rounded-full hover:bg-[#bda8ff]/90 transition-colors shadow-sm">
                     <Icon name="Download" size={12} />
                     Шаблон отчёта по рекламе
                   </a>
@@ -631,37 +615,42 @@ function Advantages() {
           <div className="h-px w-8 bg-[#bda8ff]" />
           <span className="text-[#bda8ff] text-xs font-mono uppercase tracking-[0.25em] font-semibold">Преимущества</span>
         </div>
-        <div className="flex flex-col lg:flex-row lg:items-start lg:gap-12 mb-16">
-          <div className="flex-1">
-            <h2 className="font-display text-4xl md:text-5xl text-[#2d2d2d] mb-4 leading-tight">
+        <div className="grid lg:grid-cols-2 gap-12 xl:gap-20 items-center">
+          {/* Тезисы слева */}
+          <div>
+            <h2 className="font-display text-4xl md:text-5xl text-[#2d2d2d] mb-3 leading-tight">
               Почему нас выбирают<br />производственные компании
             </h2>
-            <p className="text-[#595959] text-base max-w-lg leading-relaxed">
+            <p className="text-[#595959] text-base mb-10 leading-relaxed">
               Узкая специализация на промышленном сегменте, а не универсальное агентство для всех.
             </p>
+            <div className="space-y-0 divide-y divide-[#bda8ff]/15">
+              {advantages.map((a, i) => (
+                <div key={i} className="group flex items-start gap-4 py-5 hover:bg-[#bda8ff]/4 -mx-4 px-4 rounded-xl transition-colors duration-200">
+                  <div className="w-10 h-10 bg-[#bda8ff]/12 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-[#bda8ff]/22 transition-colors duration-300 mt-0.5">
+                    <Icon name={a.icon} fallback="Circle" size={18} className="text-[#bda8ff]" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-[#2d2d2d] font-semibold text-sm mb-1">{a.title}</h3>
+                    <p className="text-[#595959] text-sm leading-relaxed">{a.desc}</p>
+                  </div>
+                  <div className="w-6 h-6 rounded-full bg-[#bda8ff]/10 flex items-center justify-center flex-shrink-0 mt-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <Icon name="ChevronRight" size={12} className="text-[#bda8ff]" />
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
-          <div className="flex-shrink-0 lg:w-64 xl:w-80 mt-8 lg:mt-0">
+
+          {/* Иллюстрация справа */}
+          <div className="flex items-center justify-center lg:justify-end">
             <img
               src={WHY_US_ILLUSTRATION}
               alt="Кто гарантирует результат"
-              className="w-full object-contain"
-              style={{ maxHeight: "320px" }}
+              className="w-full max-w-md object-contain drop-shadow-xl"
+              style={{ maxHeight: "560px" }}
             />
           </div>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {advantages.map((a, i) => (
-            <div key={i} className="group flex items-start gap-4">
-              <div className="w-11 h-11 bg-[#bda8ff]/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-[#bda8ff]/20 transition-colors duration-300 mt-0.5">
-                <Icon name={a.icon} fallback="Circle" size={20} className="text-[#bda8ff]" />
-              </div>
-              <div>
-                <h3 className="text-[#2d2d2d] font-semibold text-base mb-2">{a.title}</h3>
-                <p className="text-[#595959] text-sm leading-relaxed">{a.desc}</p>
-              </div>
-            </div>
-          ))}
         </div>
       </div>
     </section>
@@ -910,8 +899,9 @@ function TelegramCTA() {
   return (
     <section className="py-20 bg-[#2d2d2d]">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div>
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-0 items-stretch">
+          {/* Текстовая часть */}
+          <div className="flex-1 flex flex-col justify-center lg:pr-12 xl:pr-20">
             <div className="flex items-center gap-3 mb-5">
               <div className="w-10 h-10 bg-[#bda8ff]/20 rounded-xl flex items-center justify-center">
                 <Icon name="Send" size={20} className="text-[#bda8ff]" />
@@ -934,34 +924,45 @@ function TelegramCTA() {
                 <div className="text-3xl font-bold text-white">10+</div>
                 <div className="text-white/40 text-sm mt-0.5">постов в месяц</div>
               </div>
+              <div className="w-px h-10 bg-white/10" />
+              <div>
+                <div className="text-3xl font-bold text-white">4+</div>
+                <div className="text-white/40 text-sm mt-0.5">года в эфире</div>
+              </div>
             </div>
             <a
               href="https://t.me/tolkadigital"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-[#bda8ff] text-[#2d2d2d] font-bold px-8 py-4 rounded-full hover:bg-[#a68fed] transition-all duration-200 text-base shadow-lg shadow-[#bda8ff]/25"
+              className="inline-flex items-center gap-3 bg-[#bda8ff] text-[#2d2d2d] font-bold px-8 py-4 rounded-full hover:bg-[#a68fed] transition-all duration-200 text-base shadow-lg shadow-[#bda8ff]/25 w-fit"
             >
               <Icon name="Send" size={18} />
               Подписаться в Telegram
             </a>
           </div>
 
+          {/* Разделитель */}
+          <div className="hidden lg:block w-px bg-white/10 self-stretch mx-4" />
+
           {/* Post preview */}
-          <div className="flex justify-center md:justify-end">
-            <div className="w-full max-w-xs bg-white/5 border border-white/10 rounded-3xl overflow-hidden shadow-2xl shadow-black/30">
+          <div className="flex-shrink-0 lg:pl-8 flex items-center justify-center lg:justify-start">
+            <div className="w-72 bg-white/5 border border-white/10 rounded-3xl overflow-hidden shadow-2xl shadow-black/30">
               <img
                 src={TG_POST_IMG}
                 alt="Пост из Telegram-канала TolkaDigital"
                 className="w-full object-cover object-top"
-                style={{ maxHeight: "460px" }}
+                style={{ maxHeight: "420px" }}
               />
-              <div className="p-4 flex items-center gap-3">
+              <div className="p-4 flex items-center gap-3 border-t border-white/8">
                 <div className="w-8 h-8 rounded-full bg-[#bda8ff] flex items-center justify-center flex-shrink-0">
                   <Icon name="Send" size={14} className="text-white" />
                 </div>
                 <div>
                   <div className="text-white text-sm font-semibold">TolkaDigital</div>
                   <div className="text-white/40 text-xs">Маркетинг для производства</div>
+                </div>
+                <div className="ml-auto">
+                  <span className="text-[#bda8ff] text-xs font-semibold bg-[#bda8ff]/15 px-2 py-0.5 rounded-full">193 подп.</span>
                 </div>
               </div>
             </div>
@@ -972,9 +973,31 @@ function TelegramCTA() {
   );
 }
 
-// ─── Contacts ────────────────────────────────────────────────────────────────
-function Contacts() {
-  const [form, setForm] = useState({ name: "", company: "", phone: "", message: "" });
+// ─── ContactCard ─────────────────────────────────────────────────────────────
+function ContactCard({
+  accent,
+  icon,
+  tag,
+  title,
+  desc,
+  fields,
+  btnLabel,
+  btnColor,
+  illustration,
+}: {
+  accent: string;
+  icon: string;
+  tag: string;
+  title: string;
+  desc: string;
+  fields: { label: string; ph: string; type: string; key: string }[];
+  btnLabel: string;
+  btnColor: string;
+  illustration?: string;
+}) {
+  const [form, setForm] = useState<Record<string, string>>(
+    Object.fromEntries(fields.map((f) => [f.key, ""]))
+  );
   const [agreed, setAgreed] = useState(false);
   const [sent, setSent] = useState(false);
 
@@ -985,106 +1008,144 @@ function Contacts() {
   };
 
   return (
-    <section className="py-24 bg-white" id="contacts">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16">
-          <div>
-            <div className="flex items-center gap-3 mb-6">
-              <div className="h-px w-8 bg-[#bda8ff]" />
-              <span className="text-[#bda8ff] text-xs font-mono uppercase tracking-[0.25em] font-semibold">Бесплатный аудит</span>
-            </div>
-            <h2 className="font-display text-4xl md:text-5xl text-[#2d2d2d] mb-6 leading-tight">
-              Начнём с<br />бесплатного аудита
-            </h2>
-            <p className="text-[#595959] text-base leading-relaxed mb-8">
-              Расскажем, где у вашей компании скрыт потенциал роста. Аудит занимает 45 минут и ни к чему не обязывает.
-            </p>
-            <div className="space-y-4 mb-8">
-              {[
-                "Анализируем текущие каналы и их эффективность",
-                "Находим точки роста и узкие места в воронке",
-                "Показываем, какой результат реально достижим",
-                "Предлагаем конкретный план действий",
-              ].map((item) => (
-                <div key={item} className="flex items-start gap-3">
-                  <div className="w-5 h-5 rounded-full bg-[#bda8ff]/15 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Icon name="Check" size={12} className="text-[#bda8ff]" />
-                  </div>
-                  <span className="text-[#595959] text-sm leading-relaxed">{item}</span>
-                </div>
-              ))}
-            </div>
-            <img
-              src={AUDIT_ILLUSTRATION}
-              alt="Иллюстрация аудита"
-              className="w-full max-w-sm object-contain"
-              style={{ maxHeight: "280px" }}
-            />
-          </div>
+    <div
+      className="relative flex flex-col rounded-3xl overflow-hidden border border-[#bda8ff]/20 shadow-xl shadow-[#bda8ff]/8 bg-white"
+      style={{ minHeight: "520px" }}
+    >
+      {/* Top accent strip */}
+      <div className="h-1.5 w-full" style={{ background: accent }} />
 
-          <div className="bg-[#f9f7ff] border border-[#bda8ff]/20 rounded-2xl p-8 shadow-lg shadow-[#bda8ff]/8">
-            {sent ? (
-              <div className="h-full flex flex-col items-center justify-center text-center py-12">
-                <div className="w-16 h-16 bg-[#bda8ff]/15 rounded-full flex items-center justify-center mb-6">
-                  <Icon name="Check" size={28} className="text-[#bda8ff]" />
-                </div>
-                <h3 className="font-display text-2xl text-[#2d2d2d] mb-3">Заявка отправлена</h3>
-                <p className="text-[#595959] text-sm max-w-xs leading-relaxed">
-                  Свяжемся с вами в течение рабочего дня и согласуем время для аудита
-                </p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-5">
-                {[
-                  { id: "name", label: "Ваше имя", ph: "Иван Петров", type: "text", key: "name" },
-                  { id: "company", label: "Компания", ph: "ООО Металлопром", type: "text", key: "company" },
-                  { id: "phone", label: "Телефон", ph: "+7 (___) ___-__-__", type: "tel", key: "phone" },
-                ].map((f) => (
-                  <div key={f.id}>
-                    <label className="text-xs font-mono text-[#595959]/70 uppercase tracking-wider block mb-2 font-semibold">{f.label}</label>
-                    <input
-                      type={f.type}
-                      required
-                      value={form[f.key as keyof typeof form]}
-                      onChange={(e) => setForm({ ...form, [f.key]: e.target.value })}
-                      placeholder={f.ph}
-                      className="w-full bg-white border border-[#bda8ff]/25 text-[#2d2d2d] text-sm px-4 py-3 rounded-xl focus:outline-none focus:border-[#bda8ff] placeholder-[#595959]/30 transition-colors duration-200"
-                    />
-                  </div>
-                ))}
-                <div>
-                  <label className="text-xs font-mono text-[#595959]/70 uppercase tracking-wider block mb-2 font-semibold">Коротко о задаче</label>
-                  <textarea
-                    rows={3}
-                    value={form.message}
-                    onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    placeholder="Хотим увеличить поток входящих заявок..."
-                    className="w-full bg-white border border-[#bda8ff]/25 text-[#2d2d2d] text-sm px-4 py-3 rounded-xl focus:outline-none focus:border-[#bda8ff] placeholder-[#595959]/30 transition-colors duration-200 resize-none"
-                  />
-                </div>
-                <label className="flex items-start gap-3 cursor-pointer">
-                  <input
-                    type="checkbox"
-                    checked={agreed}
-                    onChange={(e) => setAgreed(e.target.checked)}
-                    className="mt-0.5 w-4 h-4 rounded border-[#bda8ff]/40 accent-[#bda8ff] cursor-pointer flex-shrink-0"
-                  />
-                  <span className="text-xs text-[#595959]/60 leading-relaxed">
-                    Я согласен(а) на обработку персональных данных в соответствии с{" "}
-                    <a href="#" className="text-[#bda8ff] hover:underline">политикой конфиденциальности</a>
-                  </span>
-                </label>
-                <button
-                  type="submit"
-                  disabled={!agreed}
-                  className="w-full bg-[#e98c6c] text-white font-semibold py-4 px-6 rounded-full hover:bg-[#e98c6c]/90 transition-all duration-200 flex items-center justify-center gap-2 shadow-md shadow-[#e98c6c]/20 disabled:opacity-40 disabled:cursor-not-allowed"
-                >
-                  Записаться на аудит
-                  <Icon name="ArrowRight" size={16} />
-                </button>
-              </form>
-            )}
+      {/* Illustration bg */}
+      {illustration && (
+        <div className="absolute bottom-0 right-0 w-40 h-40 pointer-events-none opacity-10">
+          <img src={illustration} alt="" className="w-full h-full object-contain object-bottom" />
+        </div>
+      )}
+
+      <div className="flex flex-col flex-1 p-7">
+        {/* Tag + icon */}
+        <div className="flex items-center gap-2.5 mb-5">
+          <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: `${accent}22` }}>
+            <Icon name={icon} size={18} fallback="Circle" style={{ color: accent }} />
           </div>
+          <span className="text-xs font-mono uppercase tracking-[0.2em] font-bold" style={{ color: accent }}>{tag}</span>
+        </div>
+
+        <h3 className="font-display text-2xl text-[#2d2d2d] leading-tight mb-2">{title}</h3>
+        <p className="text-[#595959] text-sm leading-relaxed mb-6">{desc}</p>
+
+        {sent ? (
+          <div className="flex-1 flex flex-col items-center justify-center text-center py-6">
+            <div className="w-14 h-14 rounded-full flex items-center justify-center mb-4" style={{ background: `${accent}22` }}>
+              <Icon name="Check" size={26} style={{ color: accent }} />
+            </div>
+            <div className="text-[#2d2d2d] font-semibold text-base mb-1">Заявка принята!</div>
+            <div className="text-[#595959] text-xs">Свяжемся с вами в течение рабочего дня</div>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} className="flex flex-col gap-3 flex-1">
+            {fields.map((f) => (
+              <div key={f.key}>
+                <label className="text-xs font-semibold text-[#595959]/60 uppercase tracking-wider block mb-1">{f.label}</label>
+                <input
+                  type={f.type}
+                  required
+                  value={form[f.key]}
+                  onChange={(e) => setForm({ ...form, [f.key]: e.target.value })}
+                  placeholder={f.ph}
+                  className="w-full bg-[#f9f7ff] border border-[#bda8ff]/20 text-[#2d2d2d] text-sm px-4 py-2.5 rounded-xl focus:outline-none focus:border-[#bda8ff] placeholder-[#595959]/30 transition-colors duration-200"
+                />
+              </div>
+            ))}
+            <label className="flex items-start gap-2.5 cursor-pointer mt-1">
+              <input
+                type="checkbox"
+                checked={agreed}
+                onChange={(e) => setAgreed(e.target.checked)}
+                className="mt-0.5 w-4 h-4 rounded flex-shrink-0 cursor-pointer"
+                style={{ accentColor: accent }}
+              />
+              <span className="text-xs text-[#595959]/50 leading-relaxed">
+                Согласен(а) на обработку{" "}
+                <a href="#" className="hover:underline" style={{ color: accent }}>персональных данных</a>
+              </span>
+            </label>
+            <button
+              type="submit"
+              disabled={!agreed}
+              className="mt-auto w-full text-white font-bold py-3.5 px-6 rounded-full transition-all duration-200 flex items-center justify-center gap-2 text-sm disabled:opacity-40 disabled:cursor-not-allowed shadow-md"
+              style={{ background: btnColor, boxShadow: `0 4px 18px ${btnColor}40` }}
+            >
+              {btnLabel}
+              <Icon name="ArrowRight" size={15} />
+            </button>
+          </form>
+        )}
+      </div>
+    </div>
+  );
+}
+
+// ─── Contacts ────────────────────────────────────────────────────────────────
+function Contacts() {
+  return (
+    <section className="py-24 bg-[#f9f7ff]" id="contacts">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="h-px w-8 bg-[#bda8ff]" />
+          <span className="text-[#bda8ff] text-xs font-mono uppercase tracking-[0.25em] font-semibold">Начнём работу</span>
+        </div>
+        <h2 className="font-display text-4xl md:text-5xl text-[#2d2d2d] mb-4 leading-tight">
+          Выберите удобный<br />формат первого шага
+        </h2>
+        <p className="text-[#595959] text-base leading-relaxed mb-12 max-w-xl">
+          Все форматы — бесплатны. Без обязательств. Просто выберите то, что подходит вам прямо сейчас.
+        </p>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          <ContactCard
+            accent="#bda8ff"
+            icon="MessageCircle"
+            tag="Консультация"
+            title="Получить бесплатную консультацию"
+            desc="30-минутный звонок со стратегом. Расскажите задачу — дадим конкретные рекомендации."
+            fields={[
+              { label: "Имя", ph: "Иван Петров", type: "text", key: "name" },
+              { label: "Телефон", ph: "+7 (___) ___-__-__", type: "tel", key: "phone" },
+              { label: "Компания", ph: "ООО Металлопром", type: "text", key: "company" },
+            ]}
+            btnLabel="Записаться на консультацию"
+            btnColor="#bda8ff"
+            illustration={AUDIT_ILLUSTRATION}
+          />
+          <ContactCard
+            accent="#e98c6c"
+            icon="Search"
+            tag="Аудит"
+            title="Записаться на бесплатный аудит маркетинга"
+            desc="45 минут. Разберём вашу систему: каналы, воронку, метрики. Найдём точки роста и узкие места."
+            fields={[
+              { label: "Имя", ph: "Иван Петров", type: "text", key: "name" },
+              { label: "Телефон", ph: "+7 (___) ___-__-__", type: "tel", key: "phone" },
+              { label: "Сайт компании", ph: "metallprom.ru", type: "text", key: "site" },
+            ]}
+            btnLabel="Записаться на аудит"
+            btnColor="#e98c6c"
+            illustration={AUDIT_ILLUSTRATION}
+          />
+          <ContactCard
+            accent="#5b4fcf"
+            icon="FileSpreadsheet"
+            tag="Материалы"
+            title="Получить бесплатные шаблоны"
+            desc="Шаблон расчёта окупаемости маркетинга + шаблон отчёта по рекламе в Excel. Пришлём на почту."
+            fields={[
+              { label: "Имя", ph: "Иван Петров", type: "text", key: "name" },
+              { label: "Email", ph: "ivan@metallprom.ru", type: "email", key: "email" },
+            ]}
+            btnLabel="Получить шаблоны"
+            btnColor="#5b4fcf"
+          />
         </div>
       </div>
     </section>
