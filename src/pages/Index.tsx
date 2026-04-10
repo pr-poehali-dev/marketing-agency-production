@@ -156,6 +156,7 @@ function Hero() {
             style={{ animationDelay: "0.1s" }}
           >
             Производство растёт,
+            <br />
             <span className="text-[#bda8ff]"> когда за маркетинг</span> отвечают
             эксперты
           </h1>
